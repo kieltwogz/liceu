@@ -4,9 +4,6 @@ echo $DB_HOST:$DB_PORT;
 
 cd /var/www/html;
 
-echo "-- Running composer install";
-find . -name composer.json -not -path '*/wp-includes/*' -not -path '*/vendor/*' | sed -r 's/composer.json//g' |  sed -r 's/\.\///' | xargs -d $'\n' sh -c 'for arg do cd "$arg"; echo "composer em: $arg"; composer install -vvv; cd /var/www/html ; done' _ ;
-##find . -name package.json -not -path '*/wp-includes/*' -not -path '*/node_modules/*' | sed -r 's/package.json//g' | xargs -d $'\n' sh -c 'for arg do cd "$arg"; npm install; done' _ ;
 
 CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_RAN_ONCE"
 
@@ -30,7 +27,6 @@ if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
 	   sed -i "s/localhost/localhost:${WEB_PORT}/g" wp-config.php
     fi
 
-    find . -name composer.json -not -path '*/wp-includes/*' -not -path '*/vendor/*' | sed -r 's/composer.json//g' | xargs -d $'\n' sh -c 'for arg do cd "$arg"; composer dump-autoload; done' _ ;
 
     chmod a+rw -R /var/www/;
 

@@ -9,11 +9,11 @@ trigger:
 variables:
   - group: homolog-6-group
   - name: projectName
-    value: wp_ks
+    value: liceu
   - name: projectType
     value: wordpress
   - name: projectURL
-    value: wp_ks
+    value: liceu
   - name: shouldRunCompose
     value: false
 

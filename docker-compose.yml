@@ -47,7 +47,7 @@ services:
     # 1 - salvando os dados do banco no volume apontado para a máquina host do container, para evitar perdas inesperadas
     # 2 - executando os scripts desta pasta quando o container for executado
     volumes:
-      - dbdata:/var/lib/mysql
+      - db_liceu_data:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d
 
     healthcheck:
@@ -78,7 +78,7 @@ networks:
   database:
 
 volumes:
-  dbdata:
+  db_liceu_data:
     driver: local
     labels:
       okn.project.name: ${COMPOSE_PROJECT_NAME}

@@ -5,21 +5,21 @@ www/.htacess
 
 www/wp-config.php
 
-www/wp-content/plugins/*
-!www/wp-content/plugins/index.php
+
+
 !www/wp-content/plugins/wp-rocket
 
 www/wp-content/themes/*
 
 !www/wp-content/themes/index.php
-!www/wp-content/themes/wp-ks
+!www/wp-content/themes/liceu
 
 www/wp-content/wflogs/
 www/wp-content/uploads/
-www/wp-content/themes/wp-ks/vendor/
-www/wp-content/themes/wp-ks/node_modules/
+www/wp-content/themes/liceu/vendor/
+www/wp-content/themes/liceu/node_modules/
 www/.env
-www/wp-content/themes/wp-ks/assets/demo/
+www/wp-content/themes/liceu/assets/demo/
 
 node_modules/
 
