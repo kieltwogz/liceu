@@ -1,0 +1,7 @@
+cli_options:
+  url: http://web
+  disable-tls-checks: true
+  ignore-main-redirect: true
+  random-user-agent: true
+  verbose: true
+  enumerate: ap,at,tt,cb,dbe,u,m
