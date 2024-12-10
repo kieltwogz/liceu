@@ -1,47 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html <?php language_attributes(); ?> class="no-js">
+    <head>
+
+	<?php wp_enqueue_script(‘jquery’); ?>
+        <meta charset="<?php bloginfo( 'charset' ); ?>">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
+
+        <link href="<?php echo get_template_directory_uri() . '/styles/reset.css'; ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo get_template_directory_uri() . '/styles/responsive.gs.12col.css'; ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo get_template_directory_uri() . '/styles/universal.css'; ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo get_template_directory_uri() . '/styles/responsive.css'; ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo get_stylesheet_uri(); ?>" rel="stylesheet" type="text/css">
+
+        <link href="<?php echo get_template_directory_uri() . '/vendor/swiper/css/swiper.min.css'; ?>" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <?php wp_head(); ?>
+    </head>
+    <body <?php body_class(); ?>>
 	
-	<?php
-		wp_head();
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '232539487084320',
+              xfbml      : true,
+              version    : 'v2.5'
+            });
+          };
 
-		global $current_user;
-		wp_get_current_user();
-	?>
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
 
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <div id="nav-trigger">
+            <span>
+                <p>Menu Principal</p>
+                <img src="<?php echo get_template_directory_uri() . '/images/menu-icon.png'; ?>" />
+            </span>
+        </div>
+        <?php wp_nav_menu(array('container_id' => 'nav-mobile', 'container' => 'nav', 'theme_location'=>'menuM','menu_class'=>'menuMobile')); ?>
 
-	<!-- Assets -->
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/favicon/apple-touch-icon.png'); ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/favicon/favicon-32x32.png'); ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/favicon/favicon-16x16.png'); ?>">
-    <link rel="manifest" href="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/favicon/site.webmanifest'); ?>">
-    <link rel="mask-icon" href="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/favicon/safari-pinned-tab.svg'); ?>" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Gerador de Favicon -->
-    <!-- https://realfavicongenerator.net/ -->
+        <header>
+            <div id="lines">
+                <div id="area" class="container row">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo <?php bloginfo( 'name' ); ?>" /></a>
 
-	<title><?php echo get_bloginfo('name'); ?></title>
-</head>
+                    <?php wp_nav_menu(array('theme_location'=>'menuT','menu_class'=>'menuTop')); ?>
+                    <?php wp_nav_menu(array('theme_location'=>'menuP','menu_class'=>'menu')); ?>
 
-<body <?php body_class($post->post_name ?? ''); ?>>
+                    <!--<ul id="menuTop">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Portal Educacional</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li class="active"><a href="#">Matrículas</a></li>
+                    </ul>
 
-	<header class="wrapper header">
-		<a href="/index.html" title="Home Project Title">
-			<h1 class="header__logo">
-				Project Title
-				<img width="355" height="142" src="<?php echo esc_url(get_stylesheet_directory_uri() . 'assets/img/logo.png'); ?>" alt="Logo Project Title">
-			</h1>
-		</a>
-		<nav class="header__menu">
-			<a href="/index.html">Home</a>
-			<a href="#news">Notícias</a>
-		</nav>
-	</header>
+                    <ul id="menu">
+                        <li><a href="#">Institucional</a></li>
+                        <li><a href="#">Ensino</a></li>
+                        <li><a href="#">Notícias</a></li>
+                        <li><a href="#">Calendário</a></li>
+                        <li><a href="#">Fotos</a></li>
+                    </ul>-->
 
-	<main>
+                </div>
+            </div>
+        </header>
+        <section id="banner">
+                <?php if ( is_page() || is_single()) : ?>
+                <div class="swiper-container swiper-limiter">
+                <?php else : ?>
+                <div class="swiper-container swiper-limiter"><!-- HOME: For full remove swiper-limiter -->
+                <?php endif; ?>
+
+                    <div class="swiper-wrapper">
+                        <?php if ( is_home() && is_front_page() ) : ?>
+
+                        <?php echo do_shortcode("[metaslider id=355]"); ?>
+
+                        <!--<div class="swiper-slide">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/home.jpg" alt="" />
+                            <div class="container menuE-container">
+                                <ul class="menuE">
+                                    <li class="skew ei"><a href="/educacao-infantil/">EDUCAÇÃO INFANTIL</a></li>
+                                    <li class="skew ef"><a href="/ensino-fundamental/">ENSINO FUNDAMENTAL</a></li>
+                                    <li class="skew em"><a href="/ensino-medio/">ENSINO MÉDIO</a></li>
+                                </ul>
+                            </div>
+                        </div>-->
+                        <?php endif; ?>
+
+                        <?php if ( is_page()) : ?>
+                        <div class="swiper-slide">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
+                        <?php endif; ?>
+
+
+                        <?php if ( is_single()) : ?>
+                        <div class="swiper-slide">
+                            <?php the_post_thumbnail('post'); ?>
+                        </div>
+                        <?php endif; ?>
+
+
+                    </div>
+                </div>
+        </section>

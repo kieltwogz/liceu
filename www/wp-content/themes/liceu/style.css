@@ -1,14 +1,28 @@
 /*
-    Theme Name: liceu
-    Theme URI:
-    Description: This theme has been developed exclusively for liceu. Requires Wordpress 5.4.2 or higher.
-    Author: 
-    Author URI: 
-    Version: 1.0.0
-    Tags:
-    License: Copyright
-    Text Domain: wp-ks
+Theme Name: Liceu 2016
+Theme URI: https://www.liceucomtemporaneo.com.br/
+Author: Guilherme Vinicius
+Author URI: https://guilhermevini.com/
+Description: Desenvolvido para Liceu Contemporâneo
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, white, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: liceu-contemporaneo
 
-    Don't add css in this file!
-    The theme css is located at assets/css/style.css
 */
+
+.flexslider { margin-bottom: 0px !important; }
+
+body footer #cross { background-color: #FFF; background-position: 0px 30px; }
+body footer #cross #social { top: 60px; }
+footer #cross ul#menuF { float: none; left: 294px; bottom: 20px; text-align: left; height: initial; bottom: 90px; }
+footer #cross ul#menuF #nav_menu-4 { }
+footer #cross ul#menuF #nav_menu-4 li { display: inline-block; margin-right: 20px; }
+footer #cross ul#menuF #nav_menu-4 h2 { display: none; }
+
+footer #cross #menuF #nav_menu-2,
+footer #cross #menuF #nav_menu-3 { display: none; }
+
+#cross #menuF #nav_menu-4 .menu-item a { font-size: 16px; padding: 5px 10px; }
+#cross #menuF #nav_menu-4 .menu-item a:hover { color: #FFF; background-color: #655EA2;  }

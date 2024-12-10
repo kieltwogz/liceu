@@ -1,6 +1,5 @@
 version: "3.7"
 services:
-
   web:
     build:
       context: ./docker
@@ -33,7 +32,7 @@ services:
   database:
     image: mysql:${MYSQL_IMAGE_VERSION}
     container_name: ${COMPOSE_PROJECT_NAME}-db
-    command: --default-authentication-plugin=mysql_native_password
+    command: --mysql-native-password=ON
     environment:
       MYSQL_DATABASE: wp_${COMPOSE_PROJECT_NAME}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
@@ -51,7 +50,7 @@ services:
       - ./db:/docker-entrypoint-initdb.d
 
     healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
   # Security Scan
   wp_scan:

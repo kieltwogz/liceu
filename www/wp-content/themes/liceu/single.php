@@ -1,20 +1,28 @@
-<?php
-/**
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that other
- * 'pages' on your WordPress site will use a different template.
- *
- * @package UAU
- * @since 1.0.0
- */
+<?php get_header(); ?>
+	<section id="main" class="page">
+		<div class="container">
+			<div class="row gutters">
+				<div class="col s3 mh">
 
-get_header();
+					<div class="side">
+						<?php get_sidebar(); ?>
+					</div>
+				</div>
+				<div class="col s9">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<div class="entry-header">
+								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+							</div>
 
-    while ( have_posts() ) : the_post();
-        $post->post_content = apply_filters( 'the_content', $post->post_content );
-        get_template_part('template-parts/post/content');
-    endwhile;
-    wp_reset_postdata();
-
-get_footer();
+							<div class="entry-content">
+								<?php the_content(); ?>
+							</div>
+							
+						</article>
+						<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php get_footer(); ?>
