@@ -52,8 +52,6 @@ function newTitle($title) {
 	return $title;
 }
 
-add_filter('get_the_archive_title', newTitle);
-
 add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
 
 

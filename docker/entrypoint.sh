@@ -11,7 +11,7 @@ dockerize -wait tcp://$DB_HOST:$DB_PORT -timeout 4000s
 
 if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
     touch $CONTAINER_ALREADY_STARTED
-    sudo apt install php7.4 php7.4-fpm php7.4-mysql php7.4-curl php7.4-gd php7.4-mbstring php7.4-xml php7.4-zip php7.4-soap php7.4-intl unzip curl -y
+    sudo apt install php7.3 php7.3-fpm php7.3-mysql php7.3-curl php7.3-gd php7.3-mbstring php7.3-xml php7.3-zip php7.3-soap php7.3-intl unzip curl -y
 
     echo "-- Container running for its first time"
 
@@ -34,7 +34,7 @@ if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
     touch /var/log/wp-errors.log;
     touch /var/log/nginx/access.log;
     touch /var/log/nginx/error.log;
-    touch /var/log/php7.4-fpm;
+    touch /var/log/php7.3-fpm;
 
 
 else
@@ -45,4 +45,4 @@ echo "-- Running services";
 
 nginx -t;
 
-service nginx start && service php7.4-fpm start && tail -f /var/log/nginx/access.log /var/log/nginx/error.log /var/log/wp-errors.log /var/log/php7.4-fpm.log
+service nginx start && service php7.3-fpm start && tail -f /var/log/nginx/access.log /var/log/nginx/error.log /var/log/wp-errors.log /var/log/php7.3-fpm.log

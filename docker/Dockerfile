@@ -7,9 +7,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y mysql-client
 
-#RUN curl -sL https://deb.nodesource.com/setup_current.x | bash -
-#RUN  apt-get install -y nodejs
-
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
