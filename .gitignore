@@ -13,6 +13,7 @@ www/wp-content/themes/*
 
 !www/wp-content/themes/index.php
 !www/wp-content/themes/liceu
+!www/wp-content/themes/liceunovo
 
 www/wp-content/wflogs/
 www/wp-content/uploads/

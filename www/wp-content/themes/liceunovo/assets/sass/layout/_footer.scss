@@ -1,0 +1,128 @@
+.footer {
+	background-color: #2f0e6d;
+	border-top-left-radius: clamp(3rem, 6vw, 6rem);
+	border-top-right-radius: clamp(3rem, 6vw, 6rem);
+	padding: 4.1rem 0 2.5rem 0;
+
+	display: flex;
+	flex-flow: column;
+	gap: 2.4rem;
+
+	&-wrapper {
+		max-width: 122rem;
+		width: 90%;
+		margin: auto;
+	}
+
+	&__logo {
+		position: relative;
+		display: block;
+
+		& img {
+			width: 19rem;
+			height: auto;
+		}
+	}
+
+	&__b-up {
+		position: absolute;
+		cursor: pointer;
+		right: 0;
+		top: -8.2rem;
+		padding: 2.9rem 4.2rem;
+		border-radius: 3rem;
+		font-size: 1.6rem;
+		color: #fff;
+		font-family: $poppins;
+		background-color: #5828b2;
+		border: unset;
+		transition: 0.2s ease-in-out all;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+
+		@media only screen and (max-width: 1000px) {
+			right: 0;
+			left: 0;
+			margin: auto;
+			width: 20rem;
+		}
+	}
+
+	&__links {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 2.6rem;
+		align-items: center;
+
+		& a {
+			font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+			line-height: clamp(1.8rem, 2.4vw, 2.4rem);
+			font-weight: 400;
+			color: #fff;
+			font-family: $poppins;
+		}
+	}
+
+	&__mid {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+
+		@media only screen and (max-width: 1000px) {
+			flex-flow: column;
+			align-items: center;
+			gap: 2rem;
+		}
+	}
+
+	&__bottom {
+		border-top: 1px solid #fff;
+		padding-top: 1.9rem;
+		margin-top: 1.8rem;
+
+		& > div {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+		}
+
+		& p {
+			font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+			line-height: clamp(1.8rem, 2.4vw, 2.4rem);
+			font-weight: 400;
+			color: #fff;
+			font-family: $poppins;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		flex-flow: row;
+		gap: 1.8rem;
+
+		& a {
+			width: 6rem;
+			height: 6rem;
+			border-radius: 100%;
+			overflow: hidden;
+			background-color: #05a95c;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			& svg {
+				width: 3.2rem;
+				height: 3.2rem;
+			}
+		}
+	}
+}
