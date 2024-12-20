@@ -1,0 +1,25 @@
+@font-face {
+	font-family: "Biko";
+	src: url("../../fonts/biko/Biko_Black.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Biko";
+	src: url("../../fonts/biko/Biko_Bold.otf") format("opentype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Biko";
+	src: url("../../fonts/biko/Biko_Regular.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+$biko: "Biko", "Inter", sans-serif;
+$inter: "Inter", sans-serif;
+$poppins: "Poppins", "Inter", sans-serif;
+$bigshot: "Bigshot One", serif;

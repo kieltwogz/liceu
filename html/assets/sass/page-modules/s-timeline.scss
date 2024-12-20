@@ -1,0 +1,79 @@
+@import "../utils/typography";
+
+.s-timeline {
+	max-width: 1100px;
+	width: 80%;
+	margin: clamp(2rem, 4vw, 4rem) auto clamp(2rem, 10vw, 10rem) auto;
+	height: auto;
+
+	display: flex;
+	flex-flow: row;
+	gap: 1rem;
+	justify-content: space-around;
+
+	@media only screen and (max-width: 1000px) {
+		flex-flow: column;
+	}
+
+	& p {
+		font-family: $poppins;
+		font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+		line-height: clamp(1.8rem, 2.6vw, 2.6rem);
+		font-weight: 400;
+		color: #202020;
+		max-width: 34.1rem;
+	}
+
+	&__left {
+		max-width: 51.5rem;
+		flex: 1;
+
+		display: flex;
+		flex-flow: column;
+		gap: 1.4rem;
+
+		& h2 {
+			font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+			line-height: clamp(3rem, 5.3vw, 5.3rem);
+			font-weight: 400;
+			font-family: $biko;
+			color: #202020;
+		}
+	}
+
+	&__right {
+		max-width: 50.5rem;
+		display: flex;
+		flex-flow: column;
+		flex: 1;
+
+		& > div {
+			&:not(:first-child) {
+				margin-top: -1.2rem;
+
+				@media only screen and (max-width: 1000px) {
+					margin-top: 1rem;
+				}
+			}
+
+			&:nth-child(2n) {
+				align-self: flex-end;
+			}
+		}
+	}
+
+	&__block {
+		display: flex;
+		flex-flow: column;
+		gap: 0.7rem;
+		max-width: 24.2rem;
+
+		& h3 {
+			font-size: clamp(2rem, 4.8vw, 4.8rem);
+			line-height: clamp(2.2rem, 5.3vw, 5.3rem);
+			color: #05a95c;
+			font-weight: 400;
+			font-family: $biko;
+		}
+	}
+}

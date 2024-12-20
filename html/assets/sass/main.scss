@@ -1,10 +1,14 @@
-@import 'abstracts/variables';
-@import 'abstracts/fonts';
-@import 'abstracts/utilities';
+@import "abstracts/variables";
+@import "abstracts/fonts";
+@import "abstracts/utilities";
 
-@import 'base/reset';
+@import "utils/typography";
 
-@import 'layout/footer';
-@import 'layout/header';
+@import "base/reset";
 
-@import 'pages/home';
+@import "components/button";
+
+@import "layout/footer";
+@import "layout/header";
+@import "layout/warning";
+@import "layout/drop";
