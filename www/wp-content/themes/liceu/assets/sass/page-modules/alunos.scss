@@ -1,0 +1,231 @@
+@import "../utils/typography";
+@import "../utils/variables";
+
+.alunos {
+    .wrapper {
+        @media only screen and (max-width: 1238px) {
+            width: 95%;
+        }
+    }
+
+    padding: 10rem 0 10rem;
+
+    @media only screen and (max-width: 320px) {
+        width: 105%;
+    }
+
+    & header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 5rem;
+
+        @media only screen and (max-width: 980px) {
+            justify-content: center;
+        }
+
+        @media only screen and (max-width: 800px) {
+            justify-content: space-between;
+        }
+
+        @media only screen and (max-width: 768px) {
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media only screen and (max-width: 600px) {
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        & h2 {
+            font-family: $biko;
+            font-weight: 400;
+            font-size: 4.8rem;
+            line-height: 5.318rem;
+
+            color: #202020;
+
+            @media only screen and (max-width: 900px) {
+                padding-left: 3rem;
+            }
+
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 2rem;
+            }
+
+            @media only screen and (max-width: 600px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+        & p {
+            font-family: $poppins;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            width: 34.1rem;
+            text-align: right;
+
+            color: #202020;
+
+            @media only screen and (max-width: 768px) {
+                text-align: justify;
+                padding-left: 3rem;
+            }
+
+            @media only screen and (max-width: 600px) {
+                padding-left: 0;
+                text-align: center;
+                width: 30rem;
+            }
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        /*height: 43rem;*/
+
+        &:first-of-type {
+            margin-bottom: 5rem;
+        }
+
+        @media only screen and (max-width: 980px) {
+            justify-content: space-evenly;
+            gap: 3rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            gap: 4rem;
+        }
+    }
+
+    &__card {
+        width: 35.6rem;
+        height: 18.6rem;
+        border-radius: 2.4rem;
+        border: 0.3rem solid $tertiary;
+
+        padding: 3rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media only screen and (max-width: 1350px) {
+            width: 33rem;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            width: 31rem;
+        }
+
+        @media only screen and (max-width: 700px) {
+            width: 27rem;
+        }
+
+        &:first-of-type {
+            align-items: flex-start;
+        }
+
+        &:last-of-type {
+            align-items: flex-end;
+        }
+
+        @media only screen and (max-width: 980px) {
+            &:nth-of-type(2) {
+                align-items: flex-end;
+            }
+
+            &:nth-of-type(3) {
+                align-items: center;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            align-items: center !important;
+        }
+
+        &::after {
+            content: url(../../img/placeholder/Polygon.png);
+            position: relative;
+            width: 3.7rem;
+            height: 3.7rem;
+            bottom: -3.5rem;
+
+            display: block;
+        }
+
+        & header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0;
+
+            & h3 {
+                width: 29.2rem;
+                font-family: Biko;
+                font-size: 2rem;
+                font-weight: 700;
+                line-height: 2.216rem;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+                margin-bottom: 1rem;
+
+                color: $tertiary;
+
+                @media only screen and (max-width: 1350px) {
+                    width: 28rem;
+                }
+
+                @media only screen and (max-width: 1100px) {
+                    width: 25rem;
+                }
+
+                @media only screen and (max-width: 700px) {
+                    width: 21rem;
+                    font-size: 1.8rem;
+                }
+            }
+
+            & p {
+                width: 29.2rem;
+                height: 8.4rem;
+
+                font-family: Inter;
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 2.1rem;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+                color: $tertiary;
+
+                @media only screen and (max-width: 1350px) {
+                    width: 28rem;
+                }
+
+                @media only screen and (max-width: 1100px) {
+                    width: 25rem;
+                    font-size: 1.2rem;
+                    padding-left: 0;
+                }
+
+                @media only screen and (max-width: 700px) {
+                    width: 21rem;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+}

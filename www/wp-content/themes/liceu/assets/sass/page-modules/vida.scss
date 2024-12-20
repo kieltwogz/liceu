@@ -1,0 +1,215 @@
+@import "../utils/typography";
+@import "../utils/variables";
+
+@mixin white_card {
+    background-color: #fff;
+    border: $secondary 0.2rem solid;
+    color: #202020;
+}
+
+@mixin green_card {
+    background-color: $secondary;
+    color: #fff;
+    border: $purpleborder 0.2rem solid;
+}
+
+.vida {
+    width: 95%;
+    max-width: 136rem;
+
+    margin: 0 auto -40rem;
+
+    background-color: $purple;
+    border-radius: 3rem;
+
+    padding: 0.6rem clamp(3rem, 7vw, 7rem) 7rem;
+
+    display: flex;
+    flex-flow: column;
+    gap: 1.6rem;
+
+    position: relative;
+
+    &::before {
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60' fill='none'%3E%3Ccircle cx='30' cy='30' r='20' fill='white'/%3E%3C/svg%3E");
+        width: clamp(34rem, 111%, 132rem);
+        max-width: clamp(92vw, 92vw, 95vw);
+        height: 6rem;
+        display: block;
+        margin-bottom: 2.4rem;
+        position: relative;
+        left: clamp(-5.5rem, -5.5vw, -1.5rem);
+    }
+
+    &__row {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        gap: 1.6rem;
+
+        &:last-of-type {
+            & .vida__cartao {
+                &:nth-of-type(odd) {
+                    @include white_card;
+                }
+                &:nth-of-type(even) {
+                    @include green_card;
+                }
+            }
+
+            @media only screen and (max-width: 1420px) and (min-width: 620px) {
+                & .vida__cartao {
+                    &:nth-of-type(even) {
+                        @include white_card;
+                    }
+                    &:nth-of-type(odd) {
+                        @include green_card;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cartao,
+    &__frase {
+        flex: 24%;
+
+        border-radius: 1.5rem;
+
+        padding: 2.4rem 2rem;
+
+        @include white_card;
+
+        &:nth-of-type(odd) {
+            @include green_card;
+        }
+
+        & h3 {
+            font-family: $biko;
+            font-weight: 400;
+            font-size: 2.4rem;
+            line-height: 2.659rem;
+
+            margin-bottom: 0.7rem;
+        }
+
+        & p {
+            font-family: $inter;
+            font-weight: 400;
+            font-size: 1.4rem;
+            line-height: 2.1rem;
+        }
+    }
+
+    &__cartao {
+        max-width: 28.8rem;
+        z-index: 2;
+
+        @media only screen and (max-width: 1420px) and (min-width: 620px) {
+            max-width: unset;
+            flex: 33%;
+
+            &:nth-of-type(1) {
+                @include green_card;
+            }
+
+            &:nth-of-type(2) {
+                @include white_card;
+            }
+
+            &:nth-of-type(3) {
+                @include white_card;
+            }
+
+            &:nth-of-type(4) {
+                @include green_card;
+            }
+        }
+
+        @media only screen and (max-width: 620px) {
+            max-width: unset;
+            flex: 100%;
+        }
+
+        &.whitestar {
+            position: relative;
+
+            &::after {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 35 35' fill='none'%3E%3Cpath d='M17.5 0L22.2266 12.7734L35 17.5L22.2266 22.2266L17.5 35L12.7734 22.2266L0 17.5L12.7734 12.7734L17.5 0Z' fill='%23EFF2FF'/%3E%3C/svg%3E");
+                width: 3.5rem;
+                height: 3.5rem;
+                display: block;
+                position: absolute;
+                bottom: 3rem;
+                right: 3rem;
+            }
+        }
+
+        &.greenstar {
+            position: relative;
+
+            &::after {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 35 35' fill='none'%3E%3Cpath d='M17.5 0L22.2266 12.7734L35 17.5L22.2266 22.2266L17.5 35L12.7734 22.2266L0 17.5L12.7734 12.7734L17.5 0Z' fill='%2305A95C'/%3E%3C/svg%3E");
+                width: 3.5rem;
+                height: 3.5rem;
+                display: block;
+                position: absolute;
+                bottom: 2rem;
+                right: 2rem;
+            }
+        }
+
+        &.heart {
+            position: relative;
+
+            &::after {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 35 35' fill='none'%3E%3Cpath d='M17.5 31.1354L15.3854 29.2104C7.875 22.4 2.91666 17.8938 2.91666 12.3958C2.91666 7.88958 6.44583 4.375 10.9375 4.375C13.475 4.375 15.9104 5.55625 17.5 7.40833C19.0896 5.55625 21.525 4.375 24.0625 4.375C28.5542 4.375 32.0833 7.88958 32.0833 12.3958C32.0833 17.8938 27.125 22.4 19.6146 29.2104L17.5 31.1354Z' fill='white'/%3E%3C/svg%3E");
+                width: 3.5rem;
+                height: 3.5rem;
+                display: block;
+                position: absolute;
+                bottom: 3rem;
+                right: 3rem;
+            }
+        }
+    }
+
+    &__frase {
+        max-width: 60rem;
+        display: flex;
+        align-items: flex-end;
+        height: 28.5rem;
+        position: relative;
+
+        padding: 3.3rem 3.8rem;
+
+        & h2 {
+            font-family: $biko;
+            font-weight: 400;
+            font-size: clamp(3.6rem, 4.8vw, 4.8rem);
+            line-height: clamp(4rem, 5.318vw, 5.318rem);
+            color: #eff2ff;
+        }
+
+        @media only screen and (max-width: 1420px) {
+            min-width: 100%;
+        }
+
+        &::before {
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='27' cy='27' r='20' fill='%23c6d0ff'/%3E%3C/svg%3E");
+            width: 95%;
+            height: 6rem;
+            display: block;
+            margin-bottom: 2.4rem;
+            position: absolute;
+            left: 1.8rem;
+            top: -2.7rem;
+            z-index: 1;
+        }
+    }
+}
