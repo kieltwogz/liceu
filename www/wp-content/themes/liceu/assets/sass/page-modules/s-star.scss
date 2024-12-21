@@ -1,0 +1,48 @@
+@import "../utils/typography";
+
+.s-star {
+	position: relative;
+	max-width: 1100px;
+	width: 80%;
+	margin: clamp(2rem, 4vw, 4rem) auto clamp(3rem, 8.5vw, 8.5rem) auto;
+	display: flex;
+	flex-flow: column;
+	gap: 1.4rem;
+
+	& h2 {
+		font-size: clamp(2rem, 4.8vw, 4.8rem);
+		line-height: clamp(3rem, 5.3vw, 5.3rem);
+		font-weight: 400;
+		color: #202020;
+		font-family: $biko;
+		max-width: 51.5rem;
+	}
+
+	& p {
+		font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+		line-height: clamp(2rem, 2.6vw, 2.6rem);
+		font-weight: 400;
+		font-family: $poppins;
+		color: #202020;
+		max-width: 34.1rem;
+	}
+
+	&__star {
+		display: block;
+		background-image: url("data:image/svg+xml,%0A%3Csvg width='162' height='172' viewBox='0 0 162 172' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.5 0L22.2266 12.7734L35 17.5L22.2266 22.2266L17.5 35L12.7734 22.2266L0 17.5L12.7734 12.7734L17.5 0Z' fill='%2305A95C'/%3E%3Cpath d='M111 70L124.775 107.225L162 121L124.775 134.775L111 172L97.2254 134.775L60 121L97.2254 107.225L111 70Z' fill='%2305A95C'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 16.2rem;
+		height: auto;
+		aspect-ratio: 162 / 172;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		@media only screen and (max-width: 850px) {
+			width: 4rem;
+			bottom: 0;
+			top: unset;
+		}
+	}
+}

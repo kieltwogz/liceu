@@ -1,0 +1,34 @@
+@import "../utils/typography";
+
+.warning {
+	width: 100%;
+	background-color: #05a95c;
+	padding: 1.3rem 0.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& p,
+	& a {
+		color: #fff;
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		font-weight: 400;
+		font-family: $poppins;
+		text-align: center;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		padding: 0.8rem;
+
+		& p,
+		& a {
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+
+			@media only screen and (max-width: 400px) {
+				font-size: 1rem;
+			}
+		}
+	}
+}

@@ -13,6 +13,15 @@
 class Yoast_Input_Validation {
 
 	/**
+	 * The error descriptions.
+	 *
+	 * @since 12.1
+	 *
+	 * @var array<string, string>
+	 */
+	private static $error_descriptions = [];
+
+	/**
 	 * Check whether an option group is a Yoast SEO setting.
 	 *
 	 * The normal pattern is 'yoast' . $option_name . 'options'.
@@ -37,16 +46,16 @@ class Yoast_Input_Validation {
 	 *
 	 * @param string $admin_title The page title, with extra context added.
 	 *
-	 * @return string $admin_title The modified or original admin title.
+	 * @return string The modified or original admin title.
 	 */
 	public static function add_yoast_admin_document_title_errors( $admin_title ) {
-		$errors           = get_settings_errors();
-		$error_count      = 0;
+		$errors      = get_settings_errors();
+		$error_count = 0;
 
 		foreach ( $errors as $error ) {
 			// For now, filter the admin title only in the Yoast SEO settings pages.
 			if ( self::is_yoast_option_group_name( $error['setting'] ) && $error['code'] !== 'settings_updated' ) {
-				$error_count++;
+				++$error_count;
 			}
 		}
 
@@ -84,63 +93,20 @@ class Yoast_Input_Validation {
 	}
 
 	/**
-	 * The error descriptions.
-	 *
-	 * @since 12.1
-	 * @var array
-	 */
-	private static $_error_descriptions = array();
-
-	/**
 	 * Sets the error descriptions.
 	 *
 	 * @since 12.1
 	 *
-	 * @param array $descriptions An associative array of error descriptions. For
-	 *                            each entry, the key must be the setting variable.
+	 * @param array<string, string> $descriptions An associative array of error descriptions.
+	 *                            For each entry, the key must be the setting variable.
+	 *
+	 * @return void
+	 *
+	 * @deprecated 23.3
+	 * @codeCoverageIgnore
 	 */
-	public static function set_error_descriptions( $descriptions = array() ) {
-		$defaults     = array(
-			'baiduverify'     => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Baidu verification codes can only contain letters, numbers, hyphens, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'baiduverify' )
-			),
-			'fbadminapp'      => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'The Facebook App ID you entered doesn\'t exist. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'fbadminapp' )
-			),
-			'googleverify'    => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Google verification codes can only contain letters, numbers, hyphens, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'googleverify' )
-			),
-			'msverify'        => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Bing confirmation codes can only contain letters from A to F, numbers, hyphens, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'msverify' )
-			),
-			'pinterestverify' => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Pinterest confirmation codes can only contain letters from A to F, numbers, hyphens, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'pinterestverify' )
-			),
-			'twitter_site'    => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Twitter usernames can only contain letters, numbers, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'twitter_site' )
-			),
-			'yandexverify'    => sprintf(
-				/* translators: %s: additional message with the submitted invalid value */
-				esc_html__( 'Yandex confirmation codes can only contain letters from A to F, numbers, hyphens, and underscores. %s', 'wordpress-seo' ),
-				self::get_dirty_value_message( 'yandexverify' )
-			),
-		);
-
-		$descriptions = wp_parse_args( $descriptions, $defaults );
-
-		self::$_error_descriptions = $descriptions;
+	public static function set_error_descriptions( $descriptions = [] ) { // @phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable, Generic.CodeAnalysis.UnusedFunctionParameter.Found -- Needed for BC.
+		_deprecated_function( __METHOD__, 'Yoast SEO 23.3' );
 	}
 
 	/**
@@ -148,10 +114,14 @@ class Yoast_Input_Validation {
 	 *
 	 * @since 12.1
 	 *
-	 * @return array An associative array of error descriptions.
+	 * @deprecated 23.3
+	 * @codeCoverageIgnore
+	 *
+	 * @return array<string, string> An associative array of error descriptions.
 	 */
 	public static function get_error_descriptions() {
-		return self::$_error_descriptions;
+		_deprecated_function( __METHOD__, 'Yoast SEO 23.3' );
+		return [];
 	}
 
 	/**
@@ -160,14 +130,15 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
-	 * @return string The error description.
+	 *
+	 * @return string|null The error description.
 	 */
 	public static function get_error_description( $error_code ) {
-		if ( ! isset( self::$_error_descriptions[ $error_code ] ) ) {
+		if ( ! isset( self::$error_descriptions[ $error_code ] ) ) {
 			return null;
 		}
 
-		return self::$_error_descriptions[ $error_code ];
+		return self::$error_descriptions[ $error_code ];
 	}
 
 	/**
@@ -176,6 +147,7 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
+	 *
 	 * @return string The aria-invalid HTML attribute or empty string.
 	 */
 	public static function get_the_aria_invalid_attribute( $error_code ) {
@@ -192,6 +164,7 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
+	 *
 	 * @return string The aria-describedby HTML attribute or empty string.
 	 */
 	public static function get_the_aria_describedby_attribute( $error_code ) {
@@ -208,6 +181,7 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
+	 *
 	 * @return string The error description HTML or empty string.
 	 */
 	public static function get_the_error_description( $error_code ) {
@@ -227,6 +201,7 @@ class Yoast_Input_Validation {
 	 *
 	 * @param string $error_code  Code of the error set via `add_settings_error()`, normally the variable name.
 	 * @param string $dirty_value The submitted invalid value.
+	 *
 	 * @return void
 	 */
 	public static function add_dirty_value_to_settings_errors( $error_code, $dirty_value ) {
@@ -238,6 +213,7 @@ class Yoast_Input_Validation {
 
 		foreach ( $wp_settings_errors as $index => $error ) {
 			if ( $error['code'] === $error_code ) {
+				// phpcs:ignore WordPress.WP.GlobalVariablesOverride -- This is a deliberate action.
 				$wp_settings_errors[ $index ]['yoast_dirty_value'] = $dirty_value;
 			}
 		}
@@ -249,17 +225,14 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
+	 *
 	 * @return string The submitted invalid input field value.
+	 *
+	 * @deprecated 23.3
+	 * @codeCoverageIgnore
 	 */
-	public static function get_dirty_value( $error_code ) {
-		$errors = get_settings_errors();
-
-		foreach ( $errors as $error ) {
-			if ( $error['code'] === $error_code && isset( $error['yoast_dirty_value'] ) ) {
-				return $error['yoast_dirty_value'];
-			}
-		}
-
+	public static function get_dirty_value( $error_code ) {  // @phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable, Generic.CodeAnalysis.UnusedFunctionParameter.Found -- Needed for BC.
+		_deprecated_function( __METHOD__, 'Yoast SEO 23.3' );
 		return '';
 	}
 
@@ -269,17 +242,14 @@ class Yoast_Input_Validation {
 	 * @since 12.1
 	 *
 	 * @param string $error_code Code of the error set via `add_settings_error()`, normally the variable name.
+	 *
 	 * @return string The error invalid value message or empty string.
+	 *
+	 * @deprecated 23.3
+	 * @codeCoverageIgnore
 	 */
-	public static function get_dirty_value_message( $error_code ) {
-		$dirty_value = self::get_dirty_value( $error_code );
-
-		if ( $dirty_value ) {
-			return sprintf(
-				__( 'The submitted value was: %s', 'wordpress-seo' ),
-				$dirty_value
-			);
-		}
+	public static function get_dirty_value_message( $error_code ) { // @phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable, Generic.CodeAnalysis.UnusedFunctionParameter.Found -- Needed for BC.
+		_deprecated_function( __METHOD__, 'Yoast SEO 23.3' );
 
 		return '';
 	}
