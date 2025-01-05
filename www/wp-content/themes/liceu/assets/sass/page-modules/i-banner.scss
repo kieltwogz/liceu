@@ -1,7 +1,9 @@
 @import "../utils/typography";
 @import "../utils/variables";
 
-.banner {
+@import "../utils/typography";
+
+.i-banner {
     max-width: 1360px;
     margin: clamp(2rem, 4vw, 4rem) auto;
     width: 80%;
@@ -137,108 +139,6 @@
                 position: relative;
                 bottom: unset;
                 text-align: center;
-            }
-        }
-    }
-}
-
-.noticias {
-    background-color: $secondary;
-    padding: 48rem 0 9rem;
-
-    & header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        margin-bottom: 2.4rem;
-
-        @media only screen and (max-width: 620px) {
-            flex-flow: column;
-        }
-
-        & h2 {
-            font-family: $biko;
-            font-weight: 400;
-            font-size: 4.8rem;
-            line-height: 5.318rem;
-            color: #fff;
-        }
-
-        & a {
-            font-family: $inter;
-            font-weight: 400;
-            font-size: 1.6rem;
-            line-height: 2.6rem;
-            text-decoration: underline;
-            color: #fff;
-        }
-    }
-
-    &__lista {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.6rem;
-
-        @media only screen and (max-width: 1200px) {
-            flex-wrap: wrap;
-        }
-
-        @media only screen and (max-width: 460px) {
-            flex-flow: column nowrap;
-        }
-    }
-
-    &__cartao {
-        display: flex;
-        flex-flow: column;
-
-        border-radius: 3.6rem;
-        background-color: #fff;
-
-        flex: 1;
-
-        min-width: 35.6rem;
-
-        height: clamp(45rem, 48vw, 48rem);
-
-        @media only screen and (max-width: 460px) {
-            min-width: unset;
-        }
-
-        & img {
-            height: 22rem;
-            object-fit: cover;
-
-            border-radius: 3.6rem 3.6rem 0 0;
-        }
-
-        & div {
-            padding: 2.4rem 2.3rem 2.6rem;
-
-            display: flex;
-            flex-flow: column;
-            gap: 0.7rem;
-
-            height: 100%;
-
-            & h3 {
-                font-family: $biko;
-                font-weight: 400;
-                font-size: 1.8rem;
-                line-height: 1.994rem;
-            }
-
-            & p,
-            & span {
-                font-family: $inter;
-                font-weight: 400;
-                font-size: 1.4rem;
-                line-height: 2.1rem;
-            }
-
-            & span {
-                margin-top: auto;
             }
         }
     }

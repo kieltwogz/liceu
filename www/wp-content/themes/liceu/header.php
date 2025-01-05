@@ -5,6 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Liceu Contemporâneo" />
+		<link rel="manifest" href="/site.webmanifest" />
+
 		<?php
 		wp_register_style("main", get_stylesheet_directory_uri() . "/assets/css/main.css", array(), ASSETS_VERSION, "screen");
 		wp_enqueue_style("main");
@@ -34,7 +41,7 @@
         <p>Transformando o Futuro Através da Educação de Excelência</p>
     </div>
 
-    <header class="header header--purple">
+    <header class="header <?= is_front_page() ? "header--purple" : ""; ?>">
         <div class="header__wrapper">
             <a href="/" title="Liceu Comtemporâneo">
                 <h1 class="header__logo">
@@ -67,16 +74,16 @@
                             <a href="/proposta-pedagogica/" title="Proposta Pedagógica">
                                 Proposta Pedagógica
                             </a>
-                            <a href="#" title="Infraestrutura">
+                            <a href="/infraestrutura" title="Infraestrutura">
                                 Infraestrutura
                             </a>
-                            <a href="#" title="Equipe">
+                            <a href="/equipe" title="Equipe">
                                 Equipe
                             </a>
-                            <a href="#" title="Nosso Diferencial">
+                            <a href="/nosso-diferencial" title="Nosso Diferencial">
                                 Nosso Diferencial
                             </a>
-                            <a href="#" title="Nossa Filosofia">
+                            <a href="/nossa-filosofia" title="Nossa Filosofia">
                                 Nossa Filosofia
                             </a>
                         </li>
@@ -99,10 +106,10 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#">Notícias</a>
+                    <a href="/noticias">Notícias</a>
                 </nav>
                 <div class="header__last">
-                    <a href="#">Contato</a>
+                    <a href="/fale-conosco">Contato</a>
                 </div>
             </div>
 

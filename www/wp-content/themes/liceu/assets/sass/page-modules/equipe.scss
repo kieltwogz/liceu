@@ -1,0 +1,103 @@
+@import "../utils/typography";
+
+.equipe {
+    margin: 4rem auto clamp(5rem, 1.6vw, 1.6vw);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 3.5vw, 3.5rem);
+
+    &__section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.7rem;
+
+		margin-bottom: 6rem;
+
+        &__cards {
+            display: flex;
+            gap: 3rem;
+            flex-direction: column;
+
+			width: 35.5rem;
+			@media only screen and (max-width: 375px) {
+				width: auto;
+			}
+
+            .imgs {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 35.5rem;
+                height: 31.8rem;
+
+                border-radius: 17rem 17rem 17rem 0.8rem;
+
+                background-color: #05A95C;
+
+				@media only screen and (max-width: 375px) {
+					width: auto;
+					height: auto;
+				}
+
+                & img {
+                    width: 30.5rem;
+                    height: 27.3rem;
+                    border-radius: 17rem;
+
+                    @media only screen and (max-width: 375px) {
+						width: auto;
+						height: auto;
+						transform: scale(0.85);
+                    }
+                }
+
+				&--purple {
+					background-color: #5828B2;
+				}
+            }
+        }
+
+        .text {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+
+            width: 29.2rem;
+			@media only screen and (max-width: 375px) {
+				width: auto;
+			}
+
+            & h3 {
+                font-size: clamp(2rem, 4.8vw, 4.8rem);
+                line-height: clamp(3.5rem, 5.3vw, 5.3rem);
+                color: #202020;
+                font-family: $biko;
+                font-weight: 400;
+                font-size: 3.2rem;
+                text-align: left;
+                line-height: 3.546rem;
+
+                font-family: Biko;
+            }
+
+            & span {
+                font-family: Inter;
+                font-size: 1.6rem;
+                font-weight: 600;
+                line-height: 2.1rem;
+                text-align: left;
+            }
+
+            & p {
+                font-family: Inter;
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 2.1rem;
+                text-align: left;
+            }
+        }
+    }
+}
