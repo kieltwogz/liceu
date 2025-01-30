@@ -5,6 +5,8 @@ Template Name: Home Page
 get_header();
 loadJS("ensino");
 
+loadCSS("cta");
+
 loadJS("h-hero");
 loadCSS("h-hero");
 
@@ -17,6 +19,10 @@ loadCSS("projetos");
 
 useSplide();
 ?>
+
+<section class="cta">
+	<a href="#">Agende uma Visita!</a>
+</section>
 
 <section class="h-hero">
 	<div class="h-hero__wrapper wrapper">
@@ -35,6 +41,7 @@ useSplide();
 							<a href="#">SAIBA MAIS</a>
 						</div>
 						<div>
+							<a href="#">Envie-nos uma mensagem!</a>
 							<picture>
 								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-1.png" alt="Hero1" />
 							</picture>
@@ -53,6 +60,7 @@ useSplide();
 							<a href="#">SAIBA MAIS</a>
 						</div>
 						<div>
+							<a href="#">Envie-nos uma mensagem!</a>
 							<picture>
 								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-4.png" alt="Hero4" />
 							</picture>
