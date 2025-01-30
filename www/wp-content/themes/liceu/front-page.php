@@ -4,13 +4,78 @@ Template Name: Home Page
 */
 get_header();
 loadJS("ensino");
+
+loadJS("h-hero");
+loadCSS("h-hero");
+
 loadCSS("desafios");
 loadCSS("noticias");
 loadCSS("vida");
 loadCSS("ensino");
 loadCSS("alunos");
 loadCSS("projetos");
+
+useSplide();
 ?>
+
+<section class="h-hero">
+	<div class="h-hero__wrapper wrapper">
+		<div
+			class="h-hero__slide splide"
+			role="group"
+			aria-label="Hero Banner"
+		>
+
+			<div class="splide__track">
+				<ul class="splide__list">
+					<li class="splide__slide">
+						<div>
+							<h2>TRANSFORMANDO VIDAS PELA EDUCAÇÃO</h2>
+							<p>Aqui, o futuro começa hoje. Oferecemos uma formação completa para que cada aluno desenvolva todo o seu potencial.</p>
+							<a href="#">SAIBA MAIS</a>
+						</div>
+						<div>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-1.png" alt="Hero1" />
+							</picture>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-2.png" alt="Hero2" />
+							</picture>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-3.png" alt="Hero3" />
+							</picture>
+						</div>
+					</li>
+					<li class="splide__slide">
+						<div>
+							<h2>TRANSFORMANDO VIDAS PELA EDUCAÇÃO</h2>
+							<p>Aqui, o futuro começa hoje. Oferecemos uma formação completa para que cada aluno desenvolva todo o seu potencial.</p>
+							<a href="#">SAIBA MAIS</a>
+						</div>
+						<div>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-4.png" alt="Hero4" />
+							</picture>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-5.png" alt="Hero5" />
+							</picture>
+							<picture>
+								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-6.png" alt="Hero6" />
+							</picture>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<ul class="splide__pagination"></ul>
+		</div>
+		<div>
+			<a class="h-hero__button h-hero__button--pessoinha" href="#">Portal Professor</a>
+			<a class="h-hero__button h-hero__button--pessoinha" href="#">Portal Aluno</a>
+			<a class="h-hero__button h-hero__button--caneta" href="#">Concurso de Bolsas</a>
+			<a class="h-hero__button h-hero__button--calendario" href="#">Calendário Escolar</a>
+		</div>
+	</div>
+</section>
 
 <section class="projetos">
 	<div class="projetos__wrapper wrapper">

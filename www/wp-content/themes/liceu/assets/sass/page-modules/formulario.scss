@@ -1,0 +1,101 @@
+@import "../utils/typography";
+
+.wpcf7-form {
+	display: flex;
+	flex-flow: wrap;
+
+	margin-bottom: 8.5rem;
+
+	& span[role="alert"], div[role="alert"] {
+		margin: 0.7rem 0 0 5rem;
+		font-family: $poppins;
+		font-size: 2rem;
+	}
+
+	& div[role="alert"] {
+		margin: auto;
+		border: unset
+	}
+
+	& select, input, textarea {
+		border-radius: 3.8rem;
+		border: 0.1rem solid #06A95D;
+		background-color: #D8FFED;
+		padding: 4rem 5rem 1.6rem;
+		resize: none;
+
+		font-size: 1.6rem;
+		font-family: $poppins;
+
+		width: 100%;
+		appearance: none;
+	}
+
+	& .wrapper > div {
+		display: flex;
+		position: relative;
+		justify-content: space-between;
+		gap: 2rem;
+
+		& > div {
+			flex: 1;
+
+		}
+
+		@media only screen and (max-width: 1000px) {
+			display: block;
+		}
+	}
+
+	& h3 {
+		position: relative;
+		top: 3rem;
+		left: 3rem;
+		z-index: 10;
+
+		border-radius: 3.8rem;
+		border: 0.1rem solid #06A95D;
+		background-color: #06A95D;
+
+		padding: 1.6rem 2.3rem;
+		width: fit-content;
+
+		color: #fff;
+		font-size: 2rem;
+		line-height: 2.216rem;
+		font-family: $poppins;
+		font-weight: 400;
+
+		@media only screen and (max-width: 1000px) {
+			width: 50%;
+		}
+	}
+
+	& input[type="submit"] {
+		border-radius: 3.8rem;
+		border: 0.1rem solid #06A95D;
+		background-color: #06A95D;
+
+		padding: 3.2rem 0;
+		width: 100%;
+		margin: 2.4rem 0 0;
+
+		color: #fff;
+		font-size: 2rem;
+		line-height: 2.216rem;
+		font-family: $poppins;
+		font-weight: 400;
+	}
+
+	/* Chrome, Safari, Edge, Opera */
+	& input::-webkit-outer-spin-button,
+	& input::-webkit-inner-spin-button {
+  		-webkit-appearance: none;
+  		margin: 0;
+	}
+
+	/* Firefox */
+	& input[type=number] {
+		-moz-appearance: textfield;
+	}
+}

@@ -6,6 +6,7 @@
 get_header();
 loadCSS("banner");
 loadCSS("f-timeline");
+loadCSS("formulario");
 
 $thisID = get_the_ID();
 ?>
