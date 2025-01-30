@@ -45,4 +45,8 @@
 			top: unset;
 		}
 	}
+
+	& &__full {
+		max-width: unset;
+	}
 }

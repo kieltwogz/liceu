@@ -9,7 +9,7 @@ add_filter("show_admin_bar", "__return_false");
 /**
  * Desativa o editor de blocos "Gutenberg"
  */
-// add_filter("use_block_editor_for_post_type", "__return_false");
+add_filter("use_block_editor_for_post_type", "__return_false");
 
 /**
  * Adiciona suporte para imagens destacadas
