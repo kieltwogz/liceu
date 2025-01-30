@@ -39,8 +39,13 @@
             color: #202020;
 
             max-width: 51.5rem;
-
         }
+
+		&--big {
+			& h2 {
+				max-width: 55.5rem;
+			}
+		}
     }
 
     &__block {

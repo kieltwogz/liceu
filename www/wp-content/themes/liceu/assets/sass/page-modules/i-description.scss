@@ -36,6 +36,11 @@
         gap: 1rem;
         margin: clamp(2rem, 5vw, 5rem) 0;
 
+		& img {
+			border-radius: 0.8rem;
+			object-fit: cover;
+		}
+
         @media only screen and (max-width: 600px) {
             flex-direction: column;
         }
@@ -166,11 +171,10 @@
             }
 
             & img {
-                height: auto;
+                height: revert-layer;
                 border-radius: 0.8rem;
                 object-fit: cover;
             }
-
         }
     }
 

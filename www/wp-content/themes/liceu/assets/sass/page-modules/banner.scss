@@ -13,6 +13,8 @@
 
 	@media only screen and (max-width: 600px) {
 		aspect-ratio: unset;
+
+		overflow: visible;
 	}
 
 	& img {
@@ -24,7 +26,7 @@
 		object-fit: cover;
 
 		@media only screen and (max-width: 600px) {
-			display: none;
+			position: relative;
 		}
 	}
 
@@ -45,7 +47,6 @@
 			width: 100%;
 			left: 0;
 			position: relative;
-			bottom: unset;
 			text-align: center;
 		}
 	}

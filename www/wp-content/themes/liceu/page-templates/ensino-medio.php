@@ -8,9 +8,6 @@ loadCSS("banner");
 loadCSS("s-star");
 loadCSS("c-description");
 loadCSS("c-simple");
-loadCSS("s-slide");
-
-loadJS("s-slide");
 
 useSplide();
 ?>
