@@ -107,5 +107,13 @@
 		@media only screen and (max-width: 600px) {
 			flex-flow: column;
 		}
+
+		&--center {
+			justify-content: center;
+
+			& ul {
+				flex: unset;
+			}
+		}
 	}
 }

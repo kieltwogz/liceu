@@ -38,7 +38,7 @@ useSplide();
 		<br />
 		É nessa fase da vida acadêmica que se consolidam as habilidades de leitura, escrita e lógico matemáticas, aprendizagens fundamentais para o desenvolvimento da expressão e do raciocínio lógico, daí a importância do “aprender a conhecer”, isto é como obter, processar e selecionar, construir e reconstruir o conhecimento.
 	</p>
-	<div class="s-star__star"></div>
+	<div class="s-star__star s-star__star--small"></div>
 </section>
 
 <section class="c-description c-description--purple">

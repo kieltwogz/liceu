@@ -95,13 +95,13 @@
                             <a href="/educacao-infantil/" title="Educação Infantil">
                                 Educação Infantil
                             </a>
-                            <a href="#" title="Educação Fundamental">
+                            <a href="/educacao-fundamental" title="Educação Fundamental">
                                 Educação Fundamental
                             </a>
-                            <a href="#" title="Ensino Médio">
+                            <a href="/ensino-medio" title="Ensino Médio">
                                 Ensino Médio
                             </a>
-                            <a href="#" title="Atividades Complementares">
+                            <a href="/atividades-complementares" title="Atividades Complementares">
                                 Atividades Complementares
                             </a>
                         </li>
