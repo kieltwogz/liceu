@@ -9,6 +9,7 @@
 
 	transition: all 0.2s ease-in-out;
 
+
 	&:hover {
 		transform: scale(1.05);
 	}
@@ -18,10 +19,16 @@
 		border-radius: 3rem;
 		padding: 2.4rem 2.6rem;
 
+		border: .1rem solid #202020;
+
 		font-family: $poppins;
 		color: #fff;
 		font-weight: 400;
 		font-size: 1.6rem;
 		line-height: 2.4rem;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }

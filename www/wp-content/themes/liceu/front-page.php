@@ -21,7 +21,7 @@ useSplide();
 ?>
 
 <section class="cta">
-	<a href="#">Agende uma Visita!</a>
+	<a href="https://wa.me/5516992211216?text=Ol%C3%A1%2C%20venho%20atrav%C3%A9s%20do%20site%20do%20Liceu%20Contempor%C3%A2neo!%0APreciso%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20escola.">Agende uma Visita!</a>
 </section>
 
 <section class="h-hero">
@@ -38,10 +38,10 @@ useSplide();
 						<div>
 							<h2>TRANSFORMANDO VIDAS PELA EDUCAÇÃO</h2>
 							<p>Aqui, o futuro começa hoje. Oferecemos uma formação completa para que cada aluno desenvolva todo o seu potencial.</p>
-							<a href="#">SAIBA MAIS</a>
+							<a href="#ensino">SAIBA MAIS</a>
 						</div>
 						<div>
-							<a href="#">Envie-nos uma mensagem!</a>
+							<a href="https://wa.me/5516992211216?text=Ol%C3%A1%2C%20venho%20atrav%C3%A9s%20do%20site%20do%20Liceu%20Contempor%C3%A2neo!%0APreciso%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20escola.">Envie-nos uma mensagem!</a>
 							<picture>
 								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-1.png" alt="Hero1" />
 							</picture>
@@ -57,10 +57,10 @@ useSplide();
 						<div>
 							<h2>TRANSFORMANDO VIDAS PELA EDUCAÇÃO</h2>
 							<p>Aqui, o futuro começa hoje. Oferecemos uma formação completa para que cada aluno desenvolva todo o seu potencial.</p>
-							<a href="#">SAIBA MAIS</a>
+							<a href="#vida">SAIBA MAIS</a>
 						</div>
 						<div>
-							<a href="#">Envie-nos uma mensagem!</a>
+							<a href="https://wa.me/5516992211216?text=Ol%C3%A1%2C%20venho%20atrav%C3%A9s%20do%20site%20do%20Liceu%20Contempor%C3%A2neo!%0APreciso%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20escola.">Envie-nos uma mensagem!</a>
 							<picture>
 								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-4.png" alt="Hero4" />
 							</picture>
@@ -77,8 +77,8 @@ useSplide();
 			<ul class="splide__pagination"></ul>
 		</div>
 		<div>
-			<a class="h-hero__button h-hero__button--pessoinha" href="#">Portal Professor</a>
-			<a class="h-hero__button h-hero__button--pessoinha" href="#">Portal Aluno</a>
+			<a class="h-hero__button h-hero__button--pessoinha" href="https://resinae151518.rm.cloudtotvs.com.br/FrameHTML/Web/App/Edu/PortalDoProfessor/#/login">Portal Professor</a>
+			<a class="h-hero__button h-hero__button--pessoinha" href="https://resinae151518.rm.cloudtotvs.com.br/FrameHTML/web/app/edu/PortalEducacional/login/">Portal Aluno</a>
 			<a class="h-hero__button h-hero__button--caneta" href="#">Concurso de Bolsas</a>
 			<a class="h-hero__button h-hero__button--calendario" href="#">Calendário Escolar</a>
 		</div>
@@ -130,7 +130,7 @@ useSplide();
 	</div>
 </section>
 
-<section class="ensino">
+<section class="ensino" id="ensino">
 	<div class="ensino__wrapper wrapper">
 		<header>
 			<h2>TIPOS DE ENSINO</h2>
@@ -256,7 +256,7 @@ useSplide();
 	</div>
 </section>
 
-<section class="vida">
+<section class="vida" id="vida">
 	<div class="vida__row">
 		<article class="vida__cartao whitestar">
 			<h3>ESSA É A NOSSA HISTÓRIA</h3>

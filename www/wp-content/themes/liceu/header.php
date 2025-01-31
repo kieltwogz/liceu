@@ -43,7 +43,7 @@
 
     <header class="header <?= is_front_page() ? "header--purple" : ""; ?>">
         <div class="header__wrapper">
-            <a href="/" title="Liceu Comtemporâneo">
+            <a href="/" title="Liceu Contemporâneo">
                 <h1 class="header__logo">
                     Liceu Contemporâneo
                     <picture>
@@ -95,7 +95,7 @@
                             <a href="/educacao-infantil/" title="Educação Infantil">
                                 Educação Infantil
                             </a>
-                            <a href="/educacao-fundamental" title="Educação Fundamental">
+                            <a href="/ensino-fundamental" title="Educação Fundamental">
                                 Educação Fundamental
                             </a>
                             <a href="/ensino-medio" title="Ensino Médio">
