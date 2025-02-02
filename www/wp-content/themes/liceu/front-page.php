@@ -19,6 +19,8 @@ loadCSS("ensino");
 loadCSS("alunos");
 loadCSS("projetos");
 
+loadCSS("equipe");
+
 loadCSS("s-slide");
 
 useSplide();
@@ -74,6 +76,23 @@ useSplide();
 							<picture>
 								<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/hero-6.png" alt="Hero6" />
 							</picture>
+						</div>
+					</li>
+					<li class="splide__slide">
+						<iframe
+							src="https://www.youtube.com/embed/q6_2RIUeMSQ">
+						</iframe>
+					</li>
+					<li class="splide__slide">
+						<div>
+							<h2>TEXTO</h2>
+							<p>texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.</p>
+							<a href="#vida">SAIBA MAIS</a>
+						</div>
+						<div>
+							<iframe
+								src="https://www.youtube.com/embed/q6_2RIUeMSQ">
+							</iframe>
 						</div>
 					</li>
 				</ul>
@@ -315,6 +334,58 @@ useSplide();
 				</a>
 			<?php } ?>
 		</div class="noticias__lista">
+	</div>
+</section>
+
+<section class="s-slide">
+	<h2>
+		Aprovados nas Federais 2024
+	</h2>
+	<p>
+		Veja o desempenho de alguns dos nossos alunos nos últimos vestibulares:
+	</p>
+</section>
+
+<section class="equipe wrapper">
+	<div class="equipe__section">
+		<article class="equipe__section__cards">
+			<div class="imgs">
+				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image_equipe1.png" alt="">
+			</div>
+
+			<div class="text">
+				<h3>Solange Resina</h3>
+				<span>USP - Medicina</span>
+				<p>Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae! Nam
+					inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+			</div>
+		</article>
+
+		<article class="equipe__section__cards">
+			<div class="imgs imgs--purple">
+				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image_equipe2.png" alt="">
+			</div>
+
+			<div class="text">
+				<h3>Isabel Resina Marques Ferrarezi</h3>
+				<span>UNICAMP - Matemática</span>
+				<p>Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae! Nam
+					inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+			</div>
+		</article>
+
+		<article class="equipe__section__cards">
+			<div class="imgs">
+				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image_equipe3.png" alt="">
+			</div>
+
+			<div class="text">
+				<h3>Susana Selistre</h3>
+				<span>UFSCAR - Engenharia Elétrica</span>
+				<p>Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae! Nam
+					inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+			</div>
+		</article>
 	</div>
 </section>
 
