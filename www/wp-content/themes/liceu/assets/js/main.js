@@ -2,8 +2,6 @@ const $j = document.querySelector.bind(document);
 const $$j = document.querySelectorAll.bind(document);
 
 window.addEventListener("DOMContentLoaded", function () {
-    console.log("Javascript global");
-
     window.addEventListener("resize", function () {
         menuPositions();
     });

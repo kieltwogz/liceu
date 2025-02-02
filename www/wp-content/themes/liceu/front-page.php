@@ -3,7 +3,6 @@
 Template Name: Home Page
 */
 get_header();
-loadJS("ensino");
 
 loadCSS("cta");
 
@@ -13,9 +12,14 @@ loadCSS("h-hero");
 loadCSS("desafios");
 loadCSS("noticias");
 loadCSS("vida");
+
+loadJS("ensino");
 loadCSS("ensino");
+
 loadCSS("alunos");
 loadCSS("projetos");
+
+loadCSS("s-slide");
 
 useSplide();
 ?>
@@ -80,7 +84,72 @@ useSplide();
 			<a class="h-hero__button h-hero__button--pessoinha" href="https://resinae151518.rm.cloudtotvs.com.br/FrameHTML/Web/App/Edu/PortalDoProfessor/#/login">Portal Professor</a>
 			<a class="h-hero__button h-hero__button--pessoinha" href="https://resinae151518.rm.cloudtotvs.com.br/FrameHTML/web/app/edu/PortalEducacional/login/">Portal Aluno</a>
 			<a class="h-hero__button h-hero__button--caneta" href="#">Concurso de Bolsas</a>
-			<a class="h-hero__button h-hero__button--calendario" href="#">Calendário Escolar</a>
+			<a class="h-hero__button h-hero__button--calendario" href="/calendario-escolar-2022/">Calendário Escolar</a>
+		</div>
+	</div>
+</section>
+
+<section class="ensino">
+	<div
+		class="ensino__wrapper wrapper splide s-slide"
+		role="group"
+		aria-label="Tipos de Ensino"
+		id="ensino"
+	>
+		<header>
+			<h2>TIPOS DE ENSINO</h2>
+			<ul class="splide__pagination"></ul>
+		</header>
+		<div class="ensino__slider splide__track">
+			<div class="ensino__cards splide__list">
+
+				<div class="ensino__card splide__slide">
+					<article>
+						<h3>ENSINO INFANTIL</h3>
+						<p>
+							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
+							Nam
+							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+					</article>
+					<img class="img__1" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image1.png" alt="Ensino Infantil" />
+				</div>
+
+				<div class="ensino__card splide__slide">
+					<article>
+						<h3>ENSINO FUNDAMENTAL</h3>
+						<p>
+							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
+							Nam
+							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+					</article>
+					<img class="img__2" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image2.png" alt="Ensino Fundamental" />
+				</div>
+
+				<div class="ensino__card splide__slide">
+					<article>
+						<h3>ENSINO MÉDIO</h3>
+						<p>
+							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
+							Nam
+							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+					</article>
+					<img class="img__3" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image3.png" alt="Ensino Médio" />
+				</div>
+
+				<div class="ensino__card splide__slide">
+					<article>
+						<h3>ATIVIDADES COMPLEMENTARES</h3>
+						<p>
+							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
+							Nam
+							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
+					</article>
+					<img class="img__4"
+						src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image4.png"
+						alt="Atividades Complementares"
+					/>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -126,71 +195,6 @@ useSplide();
 			<a href="#">
 				TODOS OS PROJETOS
 			</a>
-		</div>
-	</div>
-</section>
-
-<section class="ensino" id="ensino">
-	<div class="ensino__wrapper wrapper">
-		<header>
-			<h2>TIPOS DE ENSINO</h2>
-			<div class="ensino__indicators">
-				<span class="indicator active" data-slide="0"></span>
-				<span class="indicator" data-slide="1"></span>
-				<span class="indicator" data-slide="2"></span>
-				<span class="indicator" data-slide="3"></span>
-			</div>
-		</header>
-		<div class="ensino__slider">
-			<div class="ensino__cards">
-
-				<div class="ensino__card">
-					<article>
-						<h3>ENSINO INFANTIL</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
-							Nam
-							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
-					</article>
-					<img class="img__1" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image1.png" alt="Ensino Infantil" />
-				</div>
-
-				<div class="ensino__card">
-					<article>
-						<h3>ENSINO FUNDAMENTAL</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
-							Nam
-							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
-					</article>
-					<img class="img__2" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image2.png" alt="Ensino Fundamental" />
-				</div>
-
-				<div class="ensino__card">
-					<article>
-						<h3>ENSINO MÉDIO</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
-							Nam
-							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
-					</article>
-					<img class="img__3" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image3.png" alt="Ensino Médio" />
-				</div>
-
-				<div class="ensino__card">
-					<article>
-						<h3>ATIVIDADES COMPLEMENTARES</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Aut quia sint et voluptatem similique in ratione molestiae!
-							Nam
-							inventore doloribus aut omnis minus id consequatur reiciendis in </p>
-					</article>
-					<img class="img__4"
-						src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/image4.png"
-						alt="Atividades Complementares"
-					/>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -297,30 +301,19 @@ useSplide();
 			<a href="#">VER TUDO</a>
 		</header>
 		<div class="noticias__lista">
-			<article class="noticias__cartao">
-				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/noticias1.png" alt="#" />
-				<div>
-					<h3>Competição, diversão e integração: GincaLiceu agita os meses de setembro e outubro para os alunos do Ensino Fundamental 2</h3>
-					<p>Em setembro e outubro, os alunos do Ensino Fundamental 2 entraram em clima de competição e muita animação com a Ginca...</p>
-					<span>20 de Setembro de 2024</span>
-				</div>
-			</article>
-			<article class="noticias__cartao">
-				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/noticias2.png" alt="#" />
-				<div>
-					<h3>GincaLiceu movimenta os meses de setembro e outubro no Ensino Fundamental 1</h3>
-					<p>Nos meses de setembro e outubro, os alunos do Ensino Fundamental 1 participaram de mais uma edição da tradic...</p>
-					<span>20 de Setembro de 2024</span>
-				</div>
-			</article>
-			<article class="noticias__cartao">
-				<img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/placeholder/noticias3.png" alt="#" />
-				<div>
-					<h3>Aniversariantes do mês de Outubro</h3>
-					<p>Confira as fotos dos aniversariantes do mês de outubro.</p>
-					<span>20 de Setembro de 2024</span>
-				</div>
-			</article>
+			<?php
+			$noticias = get_recent_posts();
+
+			foreach ($noticias as $index => $noticia) { ?>
+				<a href="<?= $noticia["url"] ?>" class="noticias__cartao">
+					<img src="<?= $noticia["img"] ?>" alt="<?= $noticia['alt'] ?>" title="<?= $noticia['alt'] ?>" />
+					<div>
+						<h3><?= $noticia["title"] ?></h3>
+						<p><?= $noticia["excerpt"] ?></p>
+						<span><?= $noticia["date"] ?></span>
+					</div>
+				</a>
+			<?php } ?>
 		</div class="noticias__lista">
 	</div>
 </section>

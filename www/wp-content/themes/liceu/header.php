@@ -20,8 +20,6 @@
 		wp_enqueue_script("main");
 		?>
 
-        <script src="assets/js/ensino.js" defer></script>
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -51,7 +49,7 @@
                             src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
                             alt="Liceu Contemporâneo">
                         <img width="190" height="69"
-                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo_black.svg'); ?>"
+                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
                             alt="Liceu Contemporâneo">
                     </picture>
                 </h1>

@@ -1,42 +1,35 @@
-<?php get_header(); ?>
+<?php
 
-	<section id="main" class="page">
-		<div class="container">
-			<div class="row gutters">
-				<div class="col s3 mh">
+get_header();
 
-					<div class="side">
-						<div class="widget">
-							<ul>
-								<?php if($post->post_parent) {
-	$parent_link = get_permalink($post->post_parent); ?>
-								<li class="voltar"><a href="<?php echo $parent_link; ?>">Voltar</a></li>
-								<?php } else { ?>
-								<li class="voltar"><a href="/">Voltar</a></li>
-								<?php } ?>
-								<?php
-								$children = wp_list_pages('title_li=&child_of='.$post->ID.'&echo=0');
-								if ($children) { ?>
-								<?php echo $children; ?>
-								<?php } ?>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col s9">
-					<?php while ( have_posts() ) : the_post(); ?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<div class="entry-header">
-								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-							</div>
+loadCSS("i-banner");
+loadCSS("s-content");
+loadCSS("formulario");
 
-							<div class="entry-content">
-								<?php the_content(); ?>
-							</div>
-						</article>
-						<?php endwhile; ?>
-				</div>
-			</div>
-		</div>
-	</section>
-	<?php get_footer(); ?>
+?>
+
+<section class="i-banner">
+	<img
+		src="<?= get_the_post_thumbnail_url(get_the_ID(), 'full') ?>"
+		width="1380"
+		height="604"
+		alt="<?= get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true) ?>"
+	/>
+	<div class="i-banner__section">
+		<h2><?= the_title(); ?></h2>
+	</div>
+</section>
+
+<section class="s-content wrapper">
+	<article class="s-content__left">
+		<a href="https://wa.me/5516992211216?text=Ol%C3%A1%2C%20venho%20atrav%C3%A9s%20do%20site%20do%20Liceu%20Contempor%C3%A2neo!%0APreciso%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20escola." id="whatsapp"></a>
+		<a href="https://www.facebook.com/liceucontemporaneo/" id="facebook"></a>
+		<a href="https://www.instagram.com/liceucontemporaneo/" id="instagram"></a>
+	</article>
+	<article class="s-content__right">
+		<?= the_content() ?>
+	</article>
+</section>
+
+<?php
+get_footer();

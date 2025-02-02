@@ -59,7 +59,7 @@
 		overflow: visible !important;
 	}
 
-	& .splide__slide {
+	&:not(.s-slide.ensino__wrapper) .splide__slide {
 		background-color: #05a95c;
 		border-radius: 1rem;
 		padding: clamp(1.2rem, 2.9vw, 2.9rem);
