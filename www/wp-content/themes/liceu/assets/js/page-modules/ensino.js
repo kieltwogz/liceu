@@ -10,8 +10,8 @@ window.addEventListener("DOMContentLoaded", function () {
                 perPage: 2,
             },
             600: {
-                fixedWidth: "100%",
-                fixedHeight: "20rem",
+                fixedWidth: "95%",
+                fixedHeight: "30rem",
                 perPage: 1,
             },
         },

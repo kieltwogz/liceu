@@ -105,7 +105,7 @@
         transition: transform 0.5s ease-in-out;
 
         @media only screen and (max-width: 350px) {
-            gap: 4.4rem;
+            gap: 0;
         }
     }
 
@@ -152,6 +152,7 @@
                 text-align: left;
                 color: white;
                 width: 29.2rem;
+				hyphens: auto;
             }
 
             & p {
@@ -162,11 +163,13 @@
                 text-align: left;
                 color: white;
                 width: 29.2rem;
-
-                @media only screen and (max-width: 350px) {
-                    width: 27rem;
-                }
             }
+
+			@media only screen and (max-width: 600px) {
+                & h3, & p {
+					width: 100%;
+				}
+			}
         }
 
         .img {
@@ -178,8 +181,8 @@
                 position: absolute;
                 top: 28.5rem;
 
-                @media only screen and (max-width: 400px) {
-                    top: 25.5rem;
+                @media only screen and (max-width: 600px) {
+                    display: none;
                 }
             }
 
@@ -187,8 +190,8 @@
                 position: absolute;
                 top: 28rem;
 
-                @media only screen and (max-width: 400px) {
-                    top: 25rem;
+                @media only screen and (max-width: 600px) {
+                    display: none;
                 }
             }
 
@@ -196,8 +199,8 @@
                 position: absolute;
                 top: 24rem;
 
-                @media only screen and (max-width: 400px) {
-                    top: 21rem;
+                @media only screen and (max-width: 600px) {
+                    display: none;
                 }
             }
 
@@ -205,10 +208,14 @@
                 position: absolute;
                 top: 24rem;
 
-                @media only screen and (max-width: 400px) {
-                    top: 21rem;
+                @media only screen and (max-width: 600px) {
+                    display: none;
                 }
             }
         }
+
+		&:hover {
+			transform: scale(1.05);
+		}
     }
 }

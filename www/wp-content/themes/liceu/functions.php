@@ -7,6 +7,11 @@ define('ASSETS_VERSION','1');
 add_filter("show_admin_bar", "__return_false");
 
 /**
+ * Adiciona suporte para títulos (Yoast SEO)
+ */
+add_theme_support( 'title-tag' );
+
+/**
  * Desativa o editor de blocos "Gutenberg"
  */
 function remove_gutenberg() {
@@ -84,6 +89,31 @@ function remove_jquery() {
 }
 add_action('wp_enqueue_scripts', 'remove_jquery');
 
+function remove_editor() {
+    global $post;
+
+    if (!$post) return;
+
+    $modelos_sem_editor = [
+        'modules.php',
+        'noticias.php',
+    ];
+
+    if (in_array(get_page_template_slug($post->ID), $modelos_sem_editor)) {
+        remove_post_type_support('page', 'editor');
+    }
+}
+add_action('add_meta_boxes', 'remove_editor');
+
+function remove_featured_image_home() {
+    $screen = get_current_screen();
+
+    if ($screen->id === 'page' && get_option('page_on_front') == get_the_ID()) {
+        remove_meta_box('postimagediv', 'page', 'side');
+    }
+}
+add_action('add_meta_boxes', 'remove_featured_image_home', 10);
+
 function loadCSS(string $file) {
     wp_register_style($file, get_stylesheet_directory_uri() . "/assets/css/page-modules/" . $file . ".css", array(), ASSETS_VERSION, "screen");
     wp_enqueue_style($file);
@@ -131,4 +161,26 @@ function get_recent_posts(int $posts_per_page = 3) {
 
     return $posts_data;
 }
-?>
+
+function render_img(int $id, array $classes = array()) {
+    $imagem_data = wp_get_attachment_image_src($id, 'full');
+    $alt = get_post_meta($id, '_wp_attachment_image_alt', true);
+    $title = get_the_title($id);
+
+    if ($imagem_data) {
+        $srcset = wp_get_attachment_image_srcset($id);
+        $sizes = wp_get_attachment_image_sizes($id);
+
+        ?>
+        <img
+            src="<?= esc_url($imagem_data[0]); ?>"
+            width="<?= esc_attr($imagem_data[1]); ?>"
+            height="<?= esc_attr($imagem_data[2]); ?>"
+            alt="<?= esc_attr($alt); ?>"
+            title="<?= esc_attr($title); ?>"
+            class="<?= implode(" ", $classes); ?>"
+            srcset="<?= esc_attr($srcset); ?>"
+            sizes="<?= esc_attr($sizes); ?>"
+        >
+    <?php }
+}

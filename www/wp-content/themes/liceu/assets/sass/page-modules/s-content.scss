@@ -149,6 +149,7 @@
 					font-family: $poppins;
 					font-weight: 400;
 					flex: 1;
+					height: 100% !important;
 
 					&:not(:first-of-type):not(:last-of-type) {
 						flex: 3;

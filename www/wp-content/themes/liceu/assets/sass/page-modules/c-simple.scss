@@ -10,6 +10,11 @@
 	justify-content: space-between;
 	gap: 1.4rem;
 
+	@media only screen and (max-width: 1270px) {
+		justify-content: center;
+		text-align: justify;
+	}
+
 	&:last-of-type {
 		margin-bottom: 8.5rem;
 	}
@@ -27,6 +32,11 @@
 		color: #202020;
 		font-family: $biko;
 		text-transform: uppercase;
+
+		@media only screen and (max-width: 1270px) {
+			text-align: center;
+			width: 100%;
+		}
 	}
 
 	& h3 {
@@ -45,7 +55,7 @@
 		color: #202020;
 	}
 
-	&:not(:has(picture)) {
+	&:not(:has(img)) {
 		& > div {
 			max-width: 100%;
 		}
@@ -73,6 +83,10 @@
 				top: 50%;
 			}
 		}
+
+		& img {
+			border-radius: 0.8rem;
+		}
 	}
 
 	&__right {
@@ -81,7 +95,9 @@
 		max-width: 46.4rem;
 		aspect-ratio: 464 / 326;
 		width: 90%;
-		border-radius: 0.8rem;
-		overflow: hidden;
+
+		& img {
+			border-radius: 0.8rem;
+		}
 	}
 }

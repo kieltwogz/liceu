@@ -3,11 +3,15 @@
 .l-description {
 	max-width: 1100px;
 	width: 80%;
-	margin: clamp(3rem, 10vw, 10rem) auto clamp(5rem, 12.6vw, 12.6rem);
+	margin: 2rem auto;
 
 	display: flex;
 	flex-flow: column;
 	gap: clamp(1.5rem, 3.5vw, 3.5rem);
+
+	&:last-of-type {
+		margin: 2rem auto clamp(5rem, 12.6vw, 12.6rem);
+	}
 
 	& h2 {
 		font-size: clamp(2rem, 4.8vw, 4.8rem);

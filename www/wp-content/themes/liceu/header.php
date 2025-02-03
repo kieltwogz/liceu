@@ -35,9 +35,11 @@
     </head>
     <body>
 
-	<div class="warning">
-        <p>Transformando o Futuro Através da Educação de Excelência</p>
-    </div>
+	<?php if (get_field("aviso", "option")) { ?>
+		<div class="warning">
+			<p><?= get_field("aviso", "option") ?></p>
+		</div>
+	<?php } ?>
 
     <header class="header <?= is_front_page() ? "header--purple" : ""; ?>">
         <div class="header__wrapper">
@@ -45,12 +47,8 @@
                 <h1 class="header__logo">
                     Liceu Contemporâneo
                     <picture>
-                        <img width="190" height="69"
-                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
-                            alt="Liceu Contemporâneo">
-                        <img width="190" height="69"
-                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
-                            alt="Liceu Contemporâneo">
+                        <?php render_img(get_field("logo_colorida", "option")); ?>
+                        <?php render_img(get_field("logo_preto_e_branco", "option")); ?>
                     </picture>
                 </h1>
             </a>
@@ -59,7 +57,7 @@
             </button>
             <div class="header__m-menu">
                 <nav class="header__menu">
-                    <a href="/">Início</a>
+                    <a href="/" title="Institucional">Início</a>
                     <a href="#" class="m01 pointer" title="Institucional">
                         Institucional
                     </a>
