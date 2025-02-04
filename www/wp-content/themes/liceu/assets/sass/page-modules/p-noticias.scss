@@ -42,6 +42,19 @@
         flex-wrap: wrap;
         gap: 5rem;
         justify-content: center;
+
+		& button {
+			font-size: 1.6rem;
+			line-height: 2.6rem;
+			text-align: center;
+			color: #fff;
+			font-family: "Poppins", "Inter", sans-serif;
+			font-weight: 400;
+			padding: .9rem 2.75rem;
+			background-color: #05a95c;
+			border-radius: 4.7rem;
+			text-transform: uppercase;
+		}
     }
 
     &__lista {

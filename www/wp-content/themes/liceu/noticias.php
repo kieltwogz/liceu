@@ -6,25 +6,20 @@
 get_header();
 loadCSS("i-banner");
 loadCSS("p-noticias");
+
+loadJS("noticias");
 ?>
 
 <section class="i-banner">
-	<?php
-	$noticias = get_recent_posts(1); ?>
-
 	<img
-		src="<?= $noticias[0]["img"] ?>" alt="<?= $noticias[0]['alt'] ?>" title="<?= $noticias[0]['alt'] ?>"
+		src="<?= get_the_post_thumbnail_url(get_the_ID(), 'full') ?>"
 		width="1380"
 		height="604"
+		alt="<?= get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true) ?>"
 	/>
-	<h3><?= $noticias[0]["category"] ?></h3>
 	<div class="i-banner__section">
-		<h2><?= $noticias[0]["title"] ?></h2>
-		<p>Publicado em <?= $noticias[0]["date"] ?></p>
+		<h2><?= the_title() ?></h2>
 	</div>
-
-
-	?>
 </section>
 
 <section class="p-noticias">
@@ -37,7 +32,7 @@ loadCSS("p-noticias");
 				<?php
 				$noticias = get_recent_posts(6);
 
-				foreach ($noticias as $index => $noticia) { ?>
+				foreach ($noticias as $noticia) { ?>
 					<a href="<?= $noticia["url"] ?>" class="p-noticias__cartao">
 						<img src="<?= $noticia["img"] ?>" alt="<?= $noticia['alt'] ?>" title="<?= $noticia['alt'] ?>" />
 						<h2><?= $noticia["category"] ?></h2>
@@ -48,7 +43,8 @@ loadCSS("p-noticias");
 						</div>
 					</a>
 				<?php } ?>
-			</div class="p-noticias__lista">
+			</div>
+			<button type="button" data-offset="6">Carregar mais</button>
 		</div>
 	</div>
 </section>

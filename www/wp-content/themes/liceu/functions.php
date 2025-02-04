@@ -184,3 +184,74 @@ function render_img(int $id, array $classes = array()) {
         >
     <?php }
 }
+
+function get_recent_posts_rest(WP_REST_Request $request) {
+    $posts_per_page = $request->get_param('per_page') ?: 3;
+    $offset = $request->get_param('offset') ?: 0;
+
+    $recent_posts = new WP_Query(array(
+        'post_type'      => 'post',
+        'posts_per_page' => $posts_per_page,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'offset'         => $offset
+    ));
+
+    $posts_data = array();
+	$total_posts = wp_count_posts()->publish;
+
+    if ($recent_posts->have_posts()) {
+        while ($recent_posts->have_posts()) {
+            $recent_posts->the_post();
+            $post_data = array(
+                'title'    => get_the_title(),
+                'excerpt'  => get_the_excerpt(),
+                'img'      => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+                'date'     => get_the_date('j \d\e F \d\e Y'),
+                'url'      => get_permalink(),
+                'alt'      => get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true),
+                'category' => get_the_category()[0]->name ?? ''
+            );
+
+            array_push($posts_data, $post_data);
+        }
+        wp_reset_postdata();
+    }
+
+    return new WP_REST_Response([
+        'posts' => $posts_data,
+        'total_posts' => $total_posts
+    ], 200);
+}
+
+function register_custom_rest_routes() {
+    register_rest_route('custom/v1', '/recent-posts', array(
+        'methods'  => 'GET',
+        'callback' => 'get_recent_posts_rest',
+        'permission_callback' => '__return_true'
+    ));
+}
+add_action('rest_api_init', 'register_custom_rest_routes');
+
+// Google Form shortcode, example: [google_form url="https://docs.google.com/forms/d/e/1FAIpQLSc8Kk1ntNONh_TtyTO62Vd7qU2P-kEo1CrevC0q47gZUl4img/viewform?usp=dialog"]
+function embed_google_form($atts) {
+    $atts = shortcode_atts(
+        array('url' => ''),
+        $atts,
+        'google_form'
+    );
+
+    if (empty($atts['url'])) {
+        return '';
+    }
+
+    return '<iframe src="' . esc_url($atts['url']) . '" width="100%" height="800px" style="border: none;"></iframe>';
+}
+add_shortcode('google_form', 'embed_google_form');
+
+//Remove Gutenberg Block Library CSS from loading on the frontend
+function smartwp_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+}
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
