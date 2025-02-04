@@ -47,7 +47,7 @@ function remove_comments_menu() {
 add_action('admin_menu', 'remove_comments_menu');
 
 function define_excerpt_length() {
-	return 25;
+	return 20;
 }
 add_filter( 'excerpt_length', 'define_excerpt_length' );
 
@@ -76,12 +76,6 @@ function remove_patterns() {
     remove_submenu_page('themes.php', 'site-editor.php?path=/patterns');
 }
 add_action('admin_menu', 'remove_patterns');
-
-function remove_tags() {
-    // Remove a taxonomia "post_tag" (tags)
-    unregister_taxonomy_for_object_type('post_tag', 'post');
-}
-add_action('init', 'remove_tags');
 
 function remove_jquery() {
     // Desregistra o jQuery do WordPress
@@ -131,15 +125,24 @@ function useSplide() {
     wp_enqueue_script("splide");
 }
 
-function get_recent_posts(int $posts_per_page = 3) {
-    $recent_posts = new WP_Query(array(
-        'post_type'      => 'post',
+function get_recent_posts(int $posts_per_page = 3, string $category = "", string $tag = "", int $except = 0) {
+	$recent_posts = new WP_Query(array(
+		'post_type'      => 'post',
         'posts_per_page' => $posts_per_page,
         'orderby'        => 'date',
-        'order'          => 'DESC'
+        'order'          => 'DESC',
+		'category_name'  => $category,
+		'tag' 			 => $tag,
+		'post__not_in' 	 => $except ? array($except) : array()
 	));
 
     $posts_data = array();
+
+	if (!empty($category)) {
+		$total_posts = get_term_by('slug', $category, 'category')->count;
+	} else if (!empty($tag)) {
+		$total_posts = get_term_by('slug', $tag, 'post_tag')->count;
+	}
 
     if ($recent_posts->have_posts()) {
         while ($recent_posts->have_posts()) { $recent_posts->the_post();
@@ -150,7 +153,7 @@ function get_recent_posts(int $posts_per_page = 3) {
                 'date'     => get_the_date('j \d\e F \d\e Y'),
                 'url'      => get_permalink(),
 				'alt'	   => get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true),
-				'category' => get_the_category()[0]->name
+				'category' => !empty(get_the_category()) ? get_the_category()[0]->name : ""
             );
 
             array_push($posts_data, $post_data);
@@ -159,7 +162,10 @@ function get_recent_posts(int $posts_per_page = 3) {
         wp_reset_postdata();
 	}
 
-    return $posts_data;
+    return array(
+		"posts" => $posts_data,
+		"total_posts" => $total_posts ?? 0
+	);
 }
 
 function render_img(int $id, array $classes = array()) {
@@ -188,17 +194,26 @@ function render_img(int $id, array $classes = array()) {
 function get_recent_posts_rest(WP_REST_Request $request) {
     $posts_per_page = $request->get_param('per_page') ?: 3;
     $offset = $request->get_param('offset') ?: 0;
+    $category = $request->get_param('category') ?: "";
+    $tag = $request->get_param('tag') ?: "";
 
     $recent_posts = new WP_Query(array(
         'post_type'      => 'post',
         'posts_per_page' => $posts_per_page,
         'orderby'        => 'date',
         'order'          => 'DESC',
-        'offset'         => $offset
+        'offset'         => $offset,
+		'category_name'  => $category,
+		'tag' 			 => $tag
     ));
 
     $posts_data = array();
-	$total_posts = wp_count_posts()->publish;
+
+	if (!empty($category)) {
+		$total_posts = get_term_by('slug', $category, 'category')->count;
+	} else if (!empty($tag)) {
+		$total_posts = get_term_by('slug', $tag, 'post_tag')->count;
+	}
 
     if ($recent_posts->have_posts()) {
         while ($recent_posts->have_posts()) {
@@ -210,7 +225,7 @@ function get_recent_posts_rest(WP_REST_Request $request) {
                 'date'     => get_the_date('j \d\e F \d\e Y'),
                 'url'      => get_permalink(),
                 'alt'      => get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true),
-                'category' => get_the_category()[0]->name ?? ''
+                'category' => !empty(get_the_category()) ? get_the_category()[0]->name : ""
             );
 
             array_push($posts_data, $post_data);
@@ -220,7 +235,7 @@ function get_recent_posts_rest(WP_REST_Request $request) {
 
     return new WP_REST_Response([
         'posts' => $posts_data,
-        'total_posts' => $total_posts
+        'total_posts' => $total_posts ?? 0
     ], 200);
 }
 

@@ -4,6 +4,10 @@ get_header();
 
 loadCSS("i-banner");
 loadCSS("s-content");
+loadCSS("p-noticias");
+
+$category = get_the_category()[0]->name;
+$tags = get_the_tags();
 
 ?>
 
@@ -14,10 +18,9 @@ loadCSS("s-content");
 		height="604"
 		alt="<?= get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true) ?>"
 	/>
-	<h3><?= get_the_category()[0]->name ?></h3>
+	<h3><?= $category ?></h3>
 	<div class="i-banner__section">
 		<h2><?= the_title(); ?></h2>
-		<p>Publicado em <?= get_the_date('j \d\e F \d\e Y'); ?></p>
 	</div>
 </section>
 
@@ -29,7 +32,45 @@ loadCSS("s-content");
 	</article>
 	<article class="s-content__right">
 		<?= the_content() ?>
+		<?php if ($tags) { ?>
+			<hr class="s-content__long" />
+			<div class="s-content__tags">
+				<?php foreach ($tags as $tag) { ?>
+					<a
+						href="<?= get_tag_link($tag->term_id) ?>"
+						title="<?= $tag->name ?>"
+					>
+						<?= $tag->name ?>
+					</a>
+				<?php } ?>
+			</div>
+		<?php } ?>
 	</article>
+</section>
+
+<section class="p-noticias p-noticias--purple">
+	<div class="p-noticias__wrapper wrapper">
+		<header>
+			<h2>RELACIONADAS</h2>
+		</header>
+		<div class="p-noticias__section">
+			<div class="p-noticias__lista">
+				<?php
+				$posts = get_recent_posts(3, $category, "", get_the_ID());
+
+				foreach ($posts["posts"] as $post) { ?>
+					<a href="<?= $post["url"] ?>" class="p-noticias__cartao">
+						<img src="<?= $post["img"] ?>" alt="<?= $post['alt'] ?>" title="<?= $post['alt'] ?>" />
+						<div>
+							<h3><?= $post["title"] ?></h3>
+							<p><?= $post["excerpt"] ?></p>
+							<span><?= $post["date"] ?></span>
+						</div>
+					</a>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
 </section>
 
 <?php

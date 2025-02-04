@@ -102,7 +102,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="/noticias">Notícias</a>
+                    <a href="/categoria/noticias">Notícias</a>
                 </nav>
                 <div class="header__last">
                     <a href="/fale-conosco">Contato</a>

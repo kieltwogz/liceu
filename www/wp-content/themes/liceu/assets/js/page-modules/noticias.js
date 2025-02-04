@@ -41,12 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     newsButton.addEventListener("click", () => {
         let offset = newsButton.getAttribute("data-offset");
+        let category = newsButton.getAttribute("data-category");
+        let tag = newsButton.getAttribute("data-tag");
 
-        fetch(`/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}`)
+        let url = tag
+            ? `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&tag=${tag}`
+            : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`
+
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 data.posts.map(noticia => {
-                    renderNoticia(noticia, newsContainer);
+                    renderNoticia(noticia, newsContainer, category);
                 });
 
                 newsButton.setAttribute("data-offset", +offset + 6);

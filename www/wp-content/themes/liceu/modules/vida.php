@@ -72,7 +72,7 @@ $link = get_sub_field("link", true, true);
 			<?php
 			$noticias = get_recent_posts($quantas_noticias ?? 3);
 
-			foreach ($noticias as $index => $noticia) { ?>
+			foreach ($noticias["posts"] as $index => $noticia) { ?>
 				<a href="<?= $noticia["url"] ?>" class="noticias__cartao">
 					<img src="<?= $noticia["img"] ?>" alt="<?= $noticia['alt'] ?>" title="<?= $noticia['alt'] ?>" />
 					<div>
