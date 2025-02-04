@@ -74,7 +74,7 @@ $link = get_sub_field("link", true, true);
 
 			foreach ($noticias["posts"] as $index => $noticia) { ?>
 				<a href="<?= $noticia["url"] ?>" class="noticias__cartao">
-					<img src="<?= $noticia["img"] ?>" alt="<?= $noticia['alt'] ?>" title="<?= $noticia['alt'] ?>" />
+					<?php render_img($noticia["img"]) ?>
 					<div>
 						<h3><?= $noticia["title"] ?></h3>
 						<p><?= $noticia["excerpt"] ?></p>

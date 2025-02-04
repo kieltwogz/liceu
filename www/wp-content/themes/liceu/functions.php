@@ -186,6 +186,11 @@ function get_recent_posts(int $posts_per_page = 3, string $category = "", string
 
 function render_img(int $id, array $classes = array()) {
     $imagem_data = wp_get_attachment_image_src($id, 'full');
+
+	$image_meta = wp_get_attachment_metadata($id);
+	$width = $image_meta['width'];
+	$height = $image_meta['height'];
+
     $alt = get_post_meta($id, '_wp_attachment_image_alt', true);
     $title = get_the_title($id);
 
@@ -196,8 +201,8 @@ function render_img(int $id, array $classes = array()) {
         ?>
         <img
             src="<?= esc_url($imagem_data[0]); ?>"
-            width="<?= esc_attr($imagem_data[1]); ?>"
-            height="<?= esc_attr($imagem_data[2]); ?>"
+            width="<?= esc_attr($width); ?>"
+            height="<?= esc_attr($height); ?>"
             alt="<?= esc_attr($alt); ?>"
             title="<?= esc_attr($title); ?>"
             class="<?= implode(" ", $classes); ?>"

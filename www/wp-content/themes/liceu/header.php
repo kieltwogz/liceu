@@ -20,16 +20,17 @@
 		wp_enqueue_script("main");
 		?>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@400;700&display=swap"
-            rel="stylesheet"
-        />
+		<!-- Preconnect para carregar mais rápido as fontes do Google -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- Preload das fontes customizadas Biko -->
+		<link rel="preload" href="/fonts/biko/Biko_Black.otf" as="font" type="font/otf" crossorigin="anonymous" />
+		<link rel="preload" href="/fonts/biko/Biko_Bold.otf" as="font" type="font/otf" crossorigin="anonymous" />
+		<link rel="preload" href="/fonts/biko/Biko_Regular.otf" as="font" type="font/otf" crossorigin="anonymous" />
+
+		<!-- Carregamento correto do Google Fonts (CSS) -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 
         <?php wp_head(); ?>
     </head>
@@ -52,7 +53,7 @@
                     </picture>
                 </h1>
             </a>
-            <button class="header__m-button">
+            <button class="header__m-button" aria-label="Menu Hambúrguer">
                 <span></span>
             </button>
             <div class="header__m-menu">
