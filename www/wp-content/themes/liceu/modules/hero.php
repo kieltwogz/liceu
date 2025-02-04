@@ -57,9 +57,10 @@ $links = get_sub_field("links", true, true);
 								<picture>
 									<?php render_img($slide["imagem_da_esquerda"]); ?>
 								</picture>
-							<?php } else {
-								echo $slide["video"];
-							} ?>
+							<?php } else { ?>
+								<div width="500" height="375" class="video__thumbnail" style="background-image: url('https://img.youtube.com/vi/<?= $slide["video"] ?>/hqdefault.jpg');"></div>
+								<button id="<?= $slide["video"] ?>" class="video__player" type="button"></button>
+							<?php } ?>
 						</div>
 					</li>
 				<?php } ?>
