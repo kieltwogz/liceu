@@ -108,6 +108,22 @@ function remove_featured_image_home() {
 }
 add_action('add_meta_boxes', 'remove_featured_image_home', 10);
 
+function remover_metaboxes_painel() {
+    // Remover a metabox do Wincher
+    remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
+    // Remover a metabox do Yoast SEO (Top Key Phrases)
+    remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
+    // Remover a metabox de Status
+    remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
+    // Remover a metabox de Novidades
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');
+    // Remover a metabox de Rascunho Rápido
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+    // Remover a metabox de Visão Geral do Yoast
+    remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
+}
+add_action('wp_dashboard_setup', 'remover_metaboxes_painel');
+
 function loadCSS(string $file) {
     wp_register_style($file, get_stylesheet_directory_uri() . "/assets/css/page-modules/" . $file . ".css", array(), ASSETS_VERSION, "screen");
     wp_enqueue_style($file);
