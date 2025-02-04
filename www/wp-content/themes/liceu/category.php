@@ -29,7 +29,7 @@ $category = get_the_category()[0]->slug;
 
 				foreach ($posts["posts"] as $post) { ?>
 					<a href="<?= $post["url"] ?>" class="p-noticias__cartao">
-						<img src="<?= $post["img"] ?>" alt="<?= $post['alt'] ?>" title="<?= $post['alt'] ?>" />
+						<?php render_img($post["img"]) ?>
 						<!-- <h2><?= $post["category"]->name ?></h2> -->
 						<div>
 							<h3><?= $post["title"] ?></h3>

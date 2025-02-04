@@ -31,7 +31,7 @@ $tag_slug = $tag->slug;
 
 				foreach ($posts["posts"] as $post) { ?>
 					<a href="<?= $post["url"] ?>" class="p-noticias__cartao">
-						<img src="<?= $post["img"] ?>" alt="<?= $post['alt'] ?>" title="<?= $post['alt'] ?>" />
+						<?php render_img($post["img"]) ?>
 						<h2><?= $post["category"] ?></h2>
 						<div>
 							<h3><?= $post["title"] ?></h3>

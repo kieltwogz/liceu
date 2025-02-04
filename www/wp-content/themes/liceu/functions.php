@@ -165,10 +165,9 @@ function get_recent_posts(int $posts_per_page = 3, string $category = "", string
             $post_data = array(
                 'title'    => get_the_title(),
                 'excerpt'  => get_the_excerpt(),
-                'img'      => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+                'img'      => get_post_thumbnail_id(get_the_ID()),
                 'date'     => get_the_date('j \d\e F \d\e Y'),
                 'url'      => get_permalink(),
-				'alt'	   => get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true),
 				'category' => !empty(get_the_category()) ? get_the_category()[0]->name : ""
             );
 
@@ -242,10 +241,9 @@ function get_recent_posts_rest(WP_REST_Request $request) {
             $post_data = array(
                 'title'    => get_the_title(),
                 'excerpt'  => get_the_excerpt(),
-                'img'      => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+                'img'      => get_post_thumbnail_id(get_the_ID()),
                 'date'     => get_the_date('j \d\e F \d\e Y'),
                 'url'      => get_permalink(),
-                'alt'      => get_post_meta(get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true),
                 'category' => !empty(get_the_category()) ? get_the_category()[0]->name : ""
             );
 
