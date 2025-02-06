@@ -90,7 +90,7 @@ function remove_editor() {
 
     $modelos_sem_editor = [
         'modules.php',
-        'noticias.php',
+        'search.php',
     ];
 
     if (in_array(get_page_template_slug($post->ID), $modelos_sem_editor)) {
@@ -141,8 +141,8 @@ function useSplide() {
     wp_enqueue_script("splide");
 }
 
-function get_recent_posts(int $posts_per_page = 3, string $category = "", string $tag = "", int $except = 0) {
-	$recent_posts = new WP_Query(array(
+function get_recent_posts(int $posts_per_page = 3, string $category = "", string $tag = "", int $except = 0, string $search = "") {
+	$args = array(
 		'post_type'      => 'post',
         'posts_per_page' => $posts_per_page,
         'orderby'        => 'date',
@@ -150,15 +150,15 @@ function get_recent_posts(int $posts_per_page = 3, string $category = "", string
 		'category_name'  => $category,
 		'tag' 			 => $tag,
 		'post__not_in' 	 => $except ? array($except) : array()
-	));
+	);
+
+	if (!empty($search)) {
+		$args['s'] = $search;
+    }
+
+	$recent_posts = new WP_Query($args);
 
     $posts_data = array();
-
-	if (!empty($category)) {
-		$total_posts = get_term_by('slug', $category, 'category')->count;
-	} else if (!empty($tag)) {
-		$total_posts = get_term_by('slug', $tag, 'post_tag')->count;
-	}
 
     if ($recent_posts->have_posts()) {
         while ($recent_posts->have_posts()) { $recent_posts->the_post();
@@ -175,6 +175,14 @@ function get_recent_posts(int $posts_per_page = 3, string $category = "", string
         }
 
         wp_reset_postdata();
+	}
+
+	if (!empty($category)) {
+		$total_posts = get_term_by('slug', $category, 'category')->count;
+	} else if (!empty($tag)) {
+		$total_posts = get_term_by('slug', $tag, 'post_tag')->count;
+	} else {
+		$total_posts = $recent_posts->found_posts;
 	}
 
     return array(
@@ -216,8 +224,9 @@ function get_recent_posts_rest(WP_REST_Request $request) {
     $offset = $request->get_param('offset') ?: 0;
     $category = $request->get_param('category') ?: "";
     $tag = $request->get_param('tag') ?: "";
+    $search = $request->get_param('search') ?: "";
 
-    $recent_posts = new WP_Query(array(
+	$args = array(
         'post_type'      => 'post',
         'posts_per_page' => $posts_per_page,
         'orderby'        => 'date',
@@ -225,7 +234,13 @@ function get_recent_posts_rest(WP_REST_Request $request) {
         'offset'         => $offset,
 		'category_name'  => $category,
 		'tag' 			 => $tag
-    ));
+    );
+
+	if (!empty($search)) {
+		$args['s'] = $search;
+    }
+
+    $recent_posts = new WP_Query($args);
 
     $posts_data = array();
 

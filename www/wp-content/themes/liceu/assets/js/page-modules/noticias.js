@@ -43,10 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
         let offset = newsButton.getAttribute("data-offset");
         let category = newsButton.getAttribute("data-category");
         let tag = newsButton.getAttribute("data-tag");
+        let search = newsButton.getAttribute("data-search");
 
-        let url = tag
-            ? `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&tag=${tag}`
-            : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`
+        let url =
+            search
+                ? `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&search=${search}`
+                :
+                tag
+                    ? `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&tag=${tag}`
+                    : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`
 
         fetch(url)
             .then(response => response.json())

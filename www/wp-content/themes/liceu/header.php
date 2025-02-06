@@ -57,59 +57,64 @@
                 <span></span>
             </button>
             <div class="header__m-menu">
-                <nav class="header__menu">
-                    <a href="/" title="Institucional">Início</a>
-                    <a href="#" class="m01 pointer" title="Institucional">
-                        Institucional
-                    </a>
-                    <ul class="drop" data-ref="m01" data-identifier="sub-menu" data-menu-top="ref-t + ref-h + 1.6rem"
-                        data-menu-left="ref-l + ((ref-w / 2) - (men-w / 2))">
-                        <li class="drop-item">
-                            <a href="/historico/" title="Histórico">
-                                Histórico
-                            </a>
-                            <a href="/proposta-pedagogica/" title="Proposta Pedagógica">
-                                Proposta Pedagógica
-                            </a>
-                            <a href="/infraestrutura" title="Infraestrutura">
-                                Infraestrutura
-                            </a>
-                            <a href="/equipe" title="Equipe">
-                                Equipe
-                            </a>
-                            <a href="/nosso-diferencial" title="Nosso Diferencial">
-                                Nosso Diferencial
-                            </a>
-                            <a href="/nossa-filosofia" title="Nossa Filosofia">
-                                Nossa Filosofia
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="#" class="m02 pointer">Educação</a>
-                    <ul class="drop" data-ref="m02" data-identifier="sub-menu" data-menu-top="ref-t + ref-h + 1.6rem"
-                        data-menu-left="ref-l + ((ref-w / 2) - (men-w / 2))">
-                        <li class="drop-item">
-                            <a href="/educacao-infantil/" title="Educação Infantil">
-                                Educação Infantil
-                            </a>
-                            <a href="/ensino-fundamental" title="Educação Fundamental">
-                                Educação Fundamental
-                            </a>
-                            <a href="/ensino-medio" title="Ensino Médio">
-                                Ensino Médio
-                            </a>
-                            <a href="/atividades-complementares" title="Atividades Complementares">
-                                Atividades Complementares
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="/categoria/noticias">Notícias</a>
-                </nav>
-                <div class="header__last">
-                    <a href="/fale-conosco">Contato</a>
-                </div>
-            </div>
+				<?php
+					$header = get_field("header", "option");
 
+					foreach ($header as $index => $item) {
+						if ($index == 0) { ?>
+							<nav class="header__menu">
+						<?php }
+
+						$ultimo = $index + 1 == count($header);
+
+						if ( ! $ultimo) {
+							if ($item["acf_fc_layout"] == "link") { ?>
+								<a
+									href="<?= $item["link"]["url"] ?>"
+									target="<?= $item["link"]["target"] ?>"
+									title="<?= $item["link"]["title"] ?>"
+								>
+									<?= $item["link"]["title"] ?>
+								</a>
+							<?php } else if ($item["acf_fc_layout"] == "search") { ?>
+								<button type="button" aria-label="Pesquisar" data-search></button>
+								<input type="text" name="search" placeholder="<?= $item["texto"] ?>" />
+							<?php } else { ?>
+								<a
+									href="#"
+									class="<?= "m0" . $index ?> pointer"
+								>
+									<?= $item["titulo"] ?>
+								</a>
+								<ul class="drop" data-ref="<?= "m0" . $index ?>" data-identifier="sub-menu" data-menu-top="ref-t + ref-h + 1.6rem"
+									data-menu-left="ref-l + ((ref-w / 2) - (men-w / 2))">
+									<li class="drop-item">
+										<?php foreach ($item["links"] as $link) { ?>
+											<a
+											href="<?= $link["link"]["url"] ?>"
+											target="<?= $link["link"]["target"] ?>"
+											title="<?= $link["link"]["title"] ?>"
+											>
+												<?= $link["link"]["title"] ?>
+											</a>
+										<?php } ?>
+									</li>
+								</ul>
+							<?php }
+						} else { ?>
+							</nav>
+							<div class="header__last">
+								<a
+									href="<?= $item["link"]["url"] ?>"
+									target="<?= $item["link"]["target"] ?>"
+									title="<?= $item["link"]["title"] ?>"
+								>
+									<?= $item["link"]["title"] ?>
+								</a>
+							</div>
+						<?php }
+					} ?>
+            </div>
         </div>
 
     </header>

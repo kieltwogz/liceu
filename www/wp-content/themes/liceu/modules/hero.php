@@ -20,8 +20,10 @@ $links = get_sub_field("links", true, true);
 
 			<div class="splide__track">
 				<ul class="splide__list">
-				<?php foreach ($slider as $slide) { ?>
-					<li class="splide__slide">
+				<?php foreach ($slider as $slide) {
+					$only_video = (empty($slide["titulo"])) && ($slide["tipo_de_slide"] != "imagem");
+				?>
+					<li class="splide__slide <?= $only_video ? "video" : "" ?>">
 						<?php if (!empty($slide["titulo"])) { ?>
 							<div>
 								<h2><?= $slide["titulo"] ?></h2>

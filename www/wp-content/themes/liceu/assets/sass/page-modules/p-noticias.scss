@@ -78,6 +78,16 @@
         @media only screen and (max-width: 460px) {
             flex-flow: column nowrap;
         }
+
+		& span {
+            font-family: $biko;
+            font-weight: 400;
+            font-size: 3.2rem;
+            line-height: 5.318rem;
+            color: #202020;
+			width: 100%;
+			hyphens: auto;
+        }
     }
 
     &__cartao {
