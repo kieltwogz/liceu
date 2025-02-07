@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const perPage = 6;
 
-    newsButton.addEventListener("click", () => {
+    newsButton.addEventListener("click", async () => {
         let offset = newsButton.getAttribute("data-offset");
         let category = newsButton.getAttribute("data-category");
         let tag = newsButton.getAttribute("data-tag");
@@ -51,27 +51,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 :
                 tag
                     ? `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&tag=${tag}`
-                    : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`
+                    : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`;
 
-        fetch(url)
-            .then(response => {
-                newsButton.classList.add("loading");
-                return response.json();
-            })
-            .then(data => {
-                data.posts.map(noticia => {
-                    renderNoticia(noticia, newsContainer, category);
-                });
+        try {
+            newsButton.classList.add("loading");
 
-                newsButton.setAttribute("data-offset", +offset + 6);
+            let response = await fetch(url);
+            let data = await response.json();
 
-                if (+offset + 6 >= data.total_posts) {
-                    newsButton.style.display = "none";
-                }
-            })
-            .catch(error => console.error("Erro ao buscar os posts recentes:", error))
-            .finally(() => {
-                newsButton.classList.remove("loading")
+            data.posts.map(noticia => {
+                renderNoticia(noticia, newsContainer, category);
             });
+
+            newsButton.setAttribute("data-offset", +offset + 6);
+
+            if (+offset + 6 >= data.total_posts) {
+                newsButton.style.display = "none";
+            }
+        } catch (error) {
+            console.error("Erro ao buscar os posts recentes:", error);
+        } finally {
+            setTimeout(() => newsButton.classList.remove("loading"), 500);
+        }
     });
 });
