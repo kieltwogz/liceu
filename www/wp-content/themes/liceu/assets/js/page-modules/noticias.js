@@ -39,7 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const perPage = 6;
 
+    let loading = false;
+
     newsButton.addEventListener("click", async () => {
+        if (loading) return;
+
+        loading = true;
+
         let offset = newsButton.getAttribute("data-offset");
         let category = newsButton.getAttribute("data-category");
         let tag = newsButton.getAttribute("data-tag");
@@ -72,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Erro ao buscar os posts recentes:", error);
         } finally {
             setTimeout(() => newsButton.classList.remove("loading"), 500);
+            loading = false;
         }
     });
 });
