@@ -1,8 +1,6 @@
 @import "../utils/typography";
 @import "../utils/variables";
 
-@import "../utils/typography";
-
 .p-noticias {
     padding: 0rem 0 9rem;
     display: flex;
@@ -56,12 +54,31 @@
 			line-height: 2.6rem;
 			text-align: center;
 			color: #fff;
-			font-family: "Poppins", "Inter", sans-serif;
+			font-family: $poppins;
 			font-weight: 400;
 			padding: .9rem 2.75rem;
-			background-color: #05a95c;
+			background-color: $secondary;
 			border-radius: 4.7rem;
 			text-transform: uppercase;
+			cursor: pointer;
+			width: 20rem;
+			height: 4rem;
+
+			background-repeat: no-repeat;
+			background-position: center;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			&:active {
+				transform: scale(0.95);
+			}
+
+			&.loading {
+				background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><radialGradient id="a10" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stop-color="%235828B2"></stop><stop offset=".3" stop-color="%235828B2" stop-opacity=".9"></stop><stop offset=".6" stop-color="%235828B2" stop-opacity=".6"></stop><stop offset=".8" stop-color="%235828B2" stop-opacity=".3"></stop><stop offset="1" stop-color="%235828B2" stop-opacity="0"></stop></radialGradient><circle transform-origin="center" fill="none" stroke="url(%23a10)" stroke-width="15" stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transform-origin="center" fill="none" opacity=".2" stroke="%235828B2" stroke-width="15" stroke-linecap="round" cx="100" cy="100" r="70"></circle></svg>');
+				color: #00000000;
+			}
 		}
     }
 
@@ -119,7 +136,7 @@
         & h2 {
             padding: 1rem 2rem;
             position: absolute;
-            font-family: "Biko", "Inter", sans-serif;
+            font-family: $biko;
             font-size: 2rem;
             font-weight: 400;
             color: #fff;

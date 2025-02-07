@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     : `/wp-json/custom/v1/recent-posts?per_page=${perPage}&offset=${offset}&category=${category}`
 
         fetch(url)
-            .then(response => response.json())
+            .then(response => {
+                newsButton.classList.add("loading");
+                return response.json();
+            })
             .then(data => {
                 data.posts.map(noticia => {
                     renderNoticia(noticia, newsContainer, category);
@@ -65,6 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (+offset + 6 >= data.total_posts) {
                     newsButton.style.display = "none";
                 }
-            }).catch(error => console.error("Erro ao buscar os posts recentes:", error));
+            })
+            .catch(error => console.error("Erro ao buscar os posts recentes:", error))
+            .finally(() => {
+                newsButton.classList.remove("loading")
+            });
     });
 });
