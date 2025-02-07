@@ -215,6 +215,7 @@ function render_img(int $id, array $classes = array()) {
             class="<?= implode(" ", $classes); ?>"
             srcset="<?= esc_attr($srcset); ?>"
             sizes="<?= esc_attr($sizes); ?>"
+			loading="lazy"
         >
     <?php }
 }
