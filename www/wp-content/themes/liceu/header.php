@@ -30,6 +30,7 @@
 		<link rel="preload" href="<?= get_stylesheet_directory_uri() ?>/assets/fonts/biko/Biko_Regular.otf" as="font" type="font/otf" crossorigin="anonymous" />
 
 		<!-- Carregamento correto do Google Fonts (CSS) -->
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 
         <?php wp_head(); ?>

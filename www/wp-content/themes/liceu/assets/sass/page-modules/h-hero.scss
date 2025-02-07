@@ -333,6 +333,16 @@
 				}
 			}
 		}
+
+		&:has(button) {
+			&:has(div:nth-of-type(2)) {
+				& button {
+					@media only screen and (min-width: 950px) {
+						top: 42%;
+					}
+				}
+			}
+		}
 	}
 
 	&__slide {

@@ -51,13 +51,13 @@ $links = get_sub_field("links", true, true);
 									<?= $whatsapp["title"] ?>
 								</a>
 								<picture>
-									<?php render_img($slide["imagem_de_cima"]); ?>
+									<?php render_img($slide["imagem_de_cima"], array(), false); ?>
 								</picture>
 								<picture>
-									<?php render_img($slide["imagem_da_direita"]); ?>
+									<?php render_img($slide["imagem_da_direita"], array(), false); ?>
 								</picture>
 								<picture>
-									<?php render_img($slide["imagem_da_esquerda"]); ?>
+									<?php render_img($slide["imagem_da_esquerda"], array(), false); ?>
 								</picture>
 							<?php } else { ?>
 								<div width="500" height="375" class="video__thumbnail" style="background-image: url('https://img.youtube.com/vi/<?= $slide["video"] ?>/hqdefault.jpg');"></div>

@@ -191,7 +191,7 @@ function get_recent_posts(int $posts_per_page = 3, string $category = "", string
 	);
 }
 
-function render_img(int $id, array $classes = array()) {
+function render_img(int $id, array $classes = array(), bool $lazy = true) {
     $imagem_data = wp_get_attachment_image_src($id, 'full');
 
 	$image_meta = wp_get_attachment_metadata($id);
@@ -215,7 +215,7 @@ function render_img(int $id, array $classes = array()) {
             class="<?= implode(" ", $classes); ?>"
             srcset="<?= esc_attr($srcset); ?>"
             sizes="<?= esc_attr($sizes); ?>"
-			loading="lazy"
+			loading="<?= $lazy ? "lazy" : "eager" ?>"
         >
     <?php }
 }
