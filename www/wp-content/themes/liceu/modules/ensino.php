@@ -5,6 +5,8 @@ loadCSS("ensino");
 
 loadCSS("s-slide");
 
+loadJS("animation");
+
 useSplide();
 
 $titulo = get_sub_field("titulo", true, true);
@@ -29,7 +31,7 @@ $cartoes = get_sub_field("cartoes", true, true);
 						href="<?= $cartao["link"]["url"] ?>"
 						target="<?= $cartao["link"]["target"] ?>"
 						title="<?= $cartao["link"]["title"] ?>"
-						class="ensino__card splide__slide"
+						class="ensino__card splide__slide animated animated--visible animated--grow"
 					>
 						<article>
 							<h3><?= $cartao["titulo"] ?></h3>

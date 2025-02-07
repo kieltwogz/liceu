@@ -1,6 +1,7 @@
 <?php
 
 loadCSS("alunos");
+loadJS("animation");
 
 $titulo = get_sub_field("titulo", true, true);
 $subtitulo = get_sub_field("subtitulo", true, true);
@@ -25,7 +26,7 @@ $alunos = get_sub_field("alunos", true, true);
 				echo '<div class="alunos__cards">';
 			} ?>
 
-			<article class="alunos__card">
+			<article class="alunos__card animated animated--visible animated--grow">
 				<header>
 					<h3><?= $aluno["nome"] ?></h3>
 					<p><?= $aluno["comentario"] ?></p>

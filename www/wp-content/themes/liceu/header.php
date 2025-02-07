@@ -119,4 +119,8 @@
 
     </header>
 
+	<div class="transition">
+		<?php render_img(get_field("logo_trans", "option")); ?>
+	</div>
+
     <main>

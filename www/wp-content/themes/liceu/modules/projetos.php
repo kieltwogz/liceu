@@ -1,6 +1,7 @@
 <?php
 
 loadCSS("projetos");
+loadJS("animation");
 
 $titulo = get_sub_field("titulo", true, true);
 $subtitulo = get_sub_field("subtitulo", true, true);
@@ -16,7 +17,7 @@ $link = get_sub_field("link", true, true);
 		</header>
 		<div class="projetos__lista">
 			<?php foreach ($projetos as $indice => $projeto) { ?>
-				<article class="cartao">
+				<article class="cartao animated animated--visible animated--grow">
 					<div>
 						<h3><?= $projeto["titulo"] ?></h3>
 						<p><?= $projeto["descricao"] ?></p>

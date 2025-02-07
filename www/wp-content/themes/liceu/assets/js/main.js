@@ -148,3 +148,6 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+window.addEventListener("beforeunload", () => {
+    $j(".transition").classList.add("transition--unload")
+})

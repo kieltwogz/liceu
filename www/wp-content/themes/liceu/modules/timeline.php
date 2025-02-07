@@ -6,8 +6,6 @@ $titulo = get_sub_field("titulo", true, true);
 $descricao = get_sub_field("descricao", true, true);
 $linha_do_tempo = get_sub_field("linha_do_tempo", true, true);
 
-loadCSS("l-description");
-
 ?>
 
 <section class="s-timeline">

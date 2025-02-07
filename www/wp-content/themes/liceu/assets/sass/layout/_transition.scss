@@ -1,0 +1,67 @@
+@import "../utils/typography";
+@import "../utils/variables";
+
+.transition {
+	position: fixed;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	z-index: 10001;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 500vh;
+	height: 500vh;
+	border-radius: 100%;
+
+	background-color: #fff;
+
+	animation: trans 1s ease-in-out forwards;
+
+	& img {
+		position: relative;
+
+		width: 10rem;
+		height: 10rem;
+
+		animation: img 0.6s ease-in-out forwards;
+	}
+
+	&--unload {
+		animation: trans_out 0.5s ease-in-out forwards;
+	}
+}
+
+@keyframes img {
+	from {
+		transform: scale(0);
+	} 30% {
+		transform: scale(1);
+	} 40% {
+		transform: scale(0.9);
+	} 50% {
+		transform: scale(0.9);
+	} 60% {
+		transform: scale(1);
+	} to {
+		transform: scale(0);
+	}
+}
+
+@keyframes trans {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	} to {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}
+
+@keyframes trans_out {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+	} to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

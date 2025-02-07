@@ -2,6 +2,7 @@
 
 loadCSS("vida");
 loadCSS("noticias");
+loadJS("animation");
 
 $titulo_do_cartao_1 = get_sub_field("titulo_do_cartao_1", true, true);
 $titulo_do_cartao_2 = get_sub_field("titulo_do_cartao_2", true, true);
@@ -73,7 +74,7 @@ $link = get_sub_field("link", true, true);
 			$noticias = get_recent_posts($quantas_noticias ?? 3);
 
 			foreach ($noticias["posts"] as $index => $noticia) { ?>
-				<a href="<?= $noticia["url"] ?>" class="noticias__cartao">
+				<a href="<?= $noticia["url"] ?>" class="noticias__cartao animated animated--grow animated--visible">
 					<?php render_img($noticia["img"]) ?>
 					<div>
 						<h3><?= $noticia["title"] ?></h3>

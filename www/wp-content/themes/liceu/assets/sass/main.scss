@@ -2,6 +2,7 @@
 @import "./layout/footer";
 @import "./layout/header";
 @import "./layout/warning";
+@import "./layout/transition";
 
 *,
 *::after,
@@ -58,4 +59,42 @@ button {
     margin: 0 auto;
     width: 80%;
     max-width: 1100px;
+}
+
+.animated {
+	transition: all 0.6s ease-in-out;
+
+	&--visible {
+		opacity: 0;
+	}
+
+	&--grow {
+		scale: 0.5;
+	}
+
+	&--down {
+		translate: 0 30%;
+	}
+
+	&.down {
+		animation: down 0.6s ease-in-out forwards;
+	}
+
+	&.show {
+		opacity: 1;
+	}
+
+	&.grow {
+		scale: 1;
+	}
+}
+
+@keyframes down {
+	from {
+		translate: 0 30%;
+	} 80% {
+		translate: 0 -5%;
+	} to {
+		translate: 0 0;
+	}
 }
