@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Erro ao buscar os posts recentes:", error);
         } finally {
-            setTimeout(() => newsButton.classList.remove("loading"), 500);
+            newsButton.classList.remove("loading");
             loading = false;
         }
     });
