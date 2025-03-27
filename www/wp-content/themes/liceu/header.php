@@ -49,8 +49,12 @@
                 <h1 class="header__logo">
                     Liceu Contemporâneo
                     <picture>
-                        <?php render_img(get_field("logo_colorida", "option")); ?>
-                        <?php render_img(get_field("logo_preto_e_branco", "option")); ?>
+						<img width="190" height="69"
+                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
+                            alt="Liceu Contemporâneo">
+                        <img width="190" height="69"
+                            src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
+                            alt="Liceu Contemporâneo">
                     </picture>
                 </h1>
             </a>

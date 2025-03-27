@@ -4,7 +4,9 @@
 
 		<footer class="footer">
 			<div class="footer__logo footer-wrapper">
-				<?php render_img(get_field("logo_colorida", "options")); ?>
+				<img width="190" height="69"
+					src="<?= esc_url(get_stylesheet_directory_uri() . '/assets/img/liceu_logo.svg'); ?>"
+					alt="Liceu Contemporâneo">
 				<button class="footer__b-up">Voltar ao topo</button>
 			</div>
 			<div class="footer__mid footer-wrapper">

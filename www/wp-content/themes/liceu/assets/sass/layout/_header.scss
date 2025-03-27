@@ -29,7 +29,7 @@
 			width: 100%;
 			height: auto;
 
-			& img {
+			& img, & svg {
 				width: 100%;
 				height: auto;
 
@@ -186,7 +186,7 @@
 
 		& .header__logo {
 			& picture {
-				& img {
+				& img, & svg {
 					&:last-child {
 						display: block;
 					}
@@ -232,7 +232,7 @@
 
 		& .header__logo {
 			& picture {
-				& img {
+				& img, & svg {
 					&:last-child {
 						display: none;
 					}
