@@ -3,6 +3,8 @@ window.addEventListener("DOMContentLoaded", function () {
         perPage: 1,
         arrows: false,
         type: "fade",
+        autoplay: true,
+        interval: 3000,
     });
     splide.mount();
 });

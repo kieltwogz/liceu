@@ -3,10 +3,11 @@
 
 .h-hero {
 	background-color: $tertiary;
+	margin-top: -0.1rem;
 
 	& .splide__track {
 		@media only screen and (max-width: 620px) {
-			min-height: 120vh;
+			min-height: 100rem;
 		}
 	}
 
@@ -15,6 +16,20 @@
 			@media only screen and (max-width: 950px) {
 				height: 45rem;
 			}
+		}
+	}
+
+	& .splide__pagination {
+		bottom: -3rem;
+
+		& li > button {
+			opacity: 1;
+			height: 2.2rem;
+			width: 2.2rem;
+
+			background-color: $secondary;
+
+			border: 0.2rem solid $primary;
 		}
 	}
 
@@ -28,7 +43,7 @@
 			flex-flow: column-reverse;
 
 			gap: 0;
-			height: 120vh;
+			height: 100rem;
 		}
 
 		&:has(iframe),
