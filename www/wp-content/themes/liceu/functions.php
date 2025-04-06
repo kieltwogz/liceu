@@ -214,7 +214,7 @@ function render_img(int $id, array $classes = array(), bool $lazy = true) {
             title="<?= esc_attr($title); ?>"
             class="<?= implode(" ", $classes); ?>"
             srcset="<?= esc_attr($srcset); ?>"
-            sizes="<?= esc_attr($sizes); ?>"
+            sizes="(max-width: 768px) 100vw, 768px"
 			loading="<?= $lazy ? "lazy" : "eager" ?>"
         >
     <?php }
