@@ -3,11 +3,11 @@
 
 .h-hero {
 	background-color: $tertiary;
-	margin-top: -0.1rem;
+	margin-top: -0.2rem;
 
 	& .splide__track {
 		@media only screen and (max-width: 620px) {
-			min-height: 100rem;
+			min-height: 120rem;
 		}
 	}
 
@@ -43,7 +43,7 @@
 			flex-flow: column-reverse;
 
 			gap: 0;
-			height: 100rem;
+			height: 120rem;
 		}
 
 		&:has(iframe),
