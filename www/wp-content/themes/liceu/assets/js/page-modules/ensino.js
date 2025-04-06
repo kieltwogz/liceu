@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", function () {
         fixedHeight: "48rem",
         arrows: false,
         gap: "1.6rem",
+        autoplay: true,
+        interval: 3000,
         breakpoints: {
             1100: {
                 perPage: 2,
