@@ -55,5 +55,15 @@
 			</div>
 		</footer>
 
+		<script>
+			function scrollToTop() {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				});
+			}
+		</script>
+		<button onclick="scrollToTop()" aria-label="Voltar ao Topo"></button>
+
 	</body>
 </html>

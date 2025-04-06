@@ -4,6 +4,12 @@
 .h-hero {
 	background-color: $tertiary;
 
+	& .splide__track {
+		@media only screen and (max-width: 620px) {
+			min-height: 120vh;
+		}
+	}
+
 	& .splide__list {
 		&:has(.splide__slide.video.is-visible) {
 			@media only screen and (max-width: 950px) {
@@ -22,16 +28,11 @@
 			flex-flow: column-reverse;
 
 			gap: 0;
-			height: 99rem;
+			height: 120vh;
 		}
 
-		&.video {
-			@media only screen and (max-width: 950px) {
-				height: 45rem;
-			}
-		}
-
-		&:has(iframe), &:has(.video__thumbnail) {
+		&:has(iframe),
+		&:has(.video__thumbnail) {
 			&::before {
 				content: "";
 				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 35 35' fill='none'%3E%3Cpath d='M17.5 0L22.2266 12.7734L35 17.5L22.2266 22.2266L17.5 35L12.7734 22.2266L0 17.5L12.7734 12.7734L17.5 0Z' fill='%2305A95C'/%3E%3C/svg%3E");
@@ -88,6 +89,7 @@
 		}
 
 		& > div:last-of-type {
+			padding: 2rem 0;
 			position: relative;
 
 			& > a {
@@ -144,7 +146,6 @@
 
 			& picture {
 				position: absolute;
-
 
 				& img {
 					border-radius: 3rem;
