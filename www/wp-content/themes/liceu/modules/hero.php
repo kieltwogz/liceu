@@ -23,7 +23,7 @@ $links = get_sub_field("links", true, true);
 				<?php foreach ($slider as $slide) {
 					$only_video = (empty($slide["titulo"])) && ($slide["tipo_de_slide"] != "imagem");
 				?>
-					<li class="splide__slide <?= $only_video ? "video" : "" ?>">
+					<li class="splide__slide <?= $slide["tipo_de_slide"] ?> <?= $only_video ? "video" : "" ?>">
 						<?php if (!empty($slide["titulo"])) { ?>
 							<div>
 								<h2><?= $slide["titulo"] ?></h2>
@@ -42,7 +42,7 @@ $links = get_sub_field("links", true, true);
 						<?php } ?>
 
 						<div>
-							<?php if ($slide["tipo_de_slide"] == "imagem") { ?>
+							<?php if ($slide["tipo_de_slide"] == "imagens") { ?>
 								<a
 									href="<?= $whatsapp["url"] ?>"
 									target="<?= $whatsapp["target"] ?>"
@@ -59,7 +59,9 @@ $links = get_sub_field("links", true, true);
 								<picture>
 									<?php render_img($slide["imagem_da_esquerda"], array(), false); ?>
 								</picture>
-							<?php } else { ?>
+							<?php } else if ($slide["tipo_de_slide"] == "imagem") { ?>
+								<?php render_img($slide["imagem"], array(), false); ?>
+							<?php } else if ($slide["tipo_de_slide"] == "video_mobile" || $slide["tipo_de_slide"] == "video_desktop") { ?>
 								<div width="500" height="375" class="video__thumbnail" style="background-image: url('https://img.youtube.com/vi/<?= $slide["video"] ?>/hqdefault.jpg');"></div>
 								<button id="<?= $slide["video"] ?>" class="video__player" type="button" aria-label="Tocar vídeo"></button>
 							<?php } ?>

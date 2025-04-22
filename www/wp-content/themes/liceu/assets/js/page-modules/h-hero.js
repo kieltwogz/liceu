@@ -3,10 +3,18 @@ window.addEventListener("DOMContentLoaded", function () {
         perPage: 1,
         arrows: false,
         type: "fade",
-        autoplay: true,
+        // autoplay: true,
         interval: 3000,
     });
+
+    const isMobile = window.innerWidth <= 768;
     splide.mount();
+
+    if (isMobile) {
+        splide.Components.Slides.remove(".video_desktop");
+    } else {
+        splide.Components.Slides.remove(".video_mobile");
+    }
 });
 
 document.querySelectorAll(".video__player").forEach((button) => {
