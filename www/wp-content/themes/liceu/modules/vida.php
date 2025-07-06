@@ -23,6 +23,36 @@ $link = get_sub_field("link", true, true);
 
 ?>
 
+<section class="noticias">
+	<div class="noticias__wrapper wrapper">
+		<header>
+			<h2><?= $titulo_noticias ?></h2>
+			<a
+				href="<?= $link["url"] ?>"
+				target="<?= $link["target"] ?>"
+				title="<?= $link["title"] ?>"
+			>
+				<?= $link["title"] ?>
+			</a>
+		</header>
+		<div class="noticias__lista">
+			<?php
+			$noticias = get_recent_posts($quantas_noticias ?? 3);
+
+			foreach ($noticias["posts"] as $index => $noticia) { ?>
+				<a href="<?= $noticia["url"] ?>" class="noticias__cartao animated animated--grow animated--visible">
+					<?php render_img($noticia["img"]) ?>
+					<div>
+						<h3><?= $noticia["title"] ?></h3>
+						<p><?= $noticia["excerpt"] ?></p>
+						<span><?= $noticia["date"] ?></span>
+					</div>
+				</a>
+			<?php } ?>
+		</div class="noticias__lista">
+	</div>
+</section>
+
 <section class="vida" id="vida">
 	<div class="vida__row">
 		<article class="vida__cartao whitestar">
@@ -54,35 +84,5 @@ $link = get_sub_field("link", true, true);
 		<article class="vida__frase">
 			<h2><?= $grande_texto ?></h2>
 		</article>
-	</div>
-</section>
-
-<section class="noticias">
-	<div class="noticias__wrapper wrapper">
-		<header>
-			<h2><?= $titulo_noticias ?></h2>
-			<a
-				href="<?= $link["url"] ?>"
-				target="<?= $link["target"] ?>"
-				title="<?= $link["title"] ?>"
-			>
-				<?= $link["title"] ?>
-			</a>
-		</header>
-		<div class="noticias__lista">
-			<?php
-			$noticias = get_recent_posts($quantas_noticias ?? 3);
-
-			foreach ($noticias["posts"] as $index => $noticia) { ?>
-				<a href="<?= $noticia["url"] ?>" class="noticias__cartao animated animated--grow animated--visible">
-					<?php render_img($noticia["img"]) ?>
-					<div>
-						<h3><?= $noticia["title"] ?></h3>
-						<p><?= $noticia["excerpt"] ?></p>
-						<span><?= $noticia["date"] ?></span>
-					</div>
-				</a>
-			<?php } ?>
-		</div class="noticias__lista">
 	</div>
 </section>
