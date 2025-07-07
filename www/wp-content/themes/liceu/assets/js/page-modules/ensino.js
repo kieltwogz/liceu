@@ -1,12 +1,12 @@
 window.addEventListener("DOMContentLoaded", function () {
     new Splide("#ensino", {
-        perPage: 2,
-        fixedWidth: "35.6rem",
+        perPage: 3,
+        // fixedWidth: "35.6rem",
         fixedHeight: "48rem",
         arrows: false,
         gap: "1.6rem",
-        autoplay: true,
-        interval: 3000,
+        // autoplay: true,
+        // interval: 3000,
         breakpoints: {
             1100: {
                 perPage: 2,

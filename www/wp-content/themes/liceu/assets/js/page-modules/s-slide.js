@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
     var splide = new Splide(".splide", {
-        perPage: 4,
-        fixedWidth: "32rem",
+        perPage: 3,
+        // fixedWidth: "32rem",
         fixedHeight: "36rem",
         arrows: false,
         gap: "2.8rem",
