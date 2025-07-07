@@ -1,0 +1,53 @@
+@import "../utils/typography";
+@import "../utils/variables";
+
+.aprovados {
+	margin-bottom: 10rem;
+
+	& h2 {
+		font-family: $biko;
+		font-weight: 400;
+		font-size: 4.8rem;
+		line-height: 5.318rem;
+		color: #202020;
+	}
+
+	& img {
+		border-radius: 1rem;
+	}
+
+	& .splide__pagination {
+		position: relative;
+		flex-flow: row;
+		justify-content: flex-end;
+		gap: 0.8rem;
+		margin-bottom: clamp(2rem, 3.9vw, 3.9rem);
+
+		& li {
+			width: 1.6rem;
+			height: 1.6rem;
+			border-radius: 100%;
+			background-color: #c6d0ff;
+			transition: all 0.2s ease-in-out;
+
+			& button {
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			&:has(button.is-active) {
+				width: 3.2rem;
+				background-color: #2f0e6d;
+				border-radius: 4.5rem;
+			}
+		}
+
+		@media only screen and (max-width: 800px) {
+			justify-content: flex-start;
+			flex-flow: row wrap;
+			margin-top: clamp(2rem, 3.9vw, 3.9rem);
+			padding: 0;
+		}
+	}
+}
